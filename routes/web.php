@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'home']);
+Route::get('/index', [\App\Http\Controllers\PetitionController::class, 'index']);
 
 Route::get('/users/firmas', [\App\Http\Controllers\UserController::class, 'peticionesFirmadas'])->middleware('auth');
 

@@ -1,9 +1,9 @@
-@extends('layouts.public')
 
-@section('content')
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/searchStyles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+
+<?php $__env->startSection('content'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/searchStyles.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <script src="https://unpkg.com/lucide@latest"></script>
     <div class="hero text-center">
         <div class="container container-lg">
@@ -101,22 +101,22 @@
                 <span class="filter-chip">Justicia Económica</span>
             </div>-->
 
-            @foreach($petitions as $petition)
+            <?php $__currentLoopData = $petitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $petition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="{{asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')}}" class="petition-image" alt="Salud Mental">
+                            <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-image" alt="Salud Mental">
                         </div>
                         <div class="petition-details">
-                            <span class="petition-category">{{$petition->category->name}}</span>
-                            <h3 class="petition-title">{{$petition->title}}</h3>
-                            <p class="petition-signatures">{{$petition->signatories}} firmas</p>
+                            <span class="petition-category"><?php echo e($petition->category->name); ?></span>
+                            <h3 class="petition-title"><?php echo e($petition->title); ?></h3>
+                            <p class="petition-signatures"><?php echo e($petition->signatories); ?> firmas</p>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </section>
 
@@ -125,4 +125,6 @@
     <script>
         lucide.createIcons();
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/petitions/index.blade.php ENDPATH**/ ?>

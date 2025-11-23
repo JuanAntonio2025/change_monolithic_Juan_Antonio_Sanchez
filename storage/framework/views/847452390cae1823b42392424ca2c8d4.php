@@ -1,6 +1,6 @@
-@php
+<?php
     use Illuminate\Support\Facades\Auth;
-@endphp
+?>
 
 <!doctype html>
 <html lang="es">
@@ -8,10 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Change.org - El cambio comienza aquí</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <script async src="{{asset('assets/js/*')}}"></script>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+    <script async src="<?php echo e(asset('assets/js/*')); ?>"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-white border-bottom py-3 sticky-top">
@@ -37,7 +37,7 @@
     </div>
 </nav>
 
-@yield('content')
+<?php echo $__env->yieldContent('content'); ?>
 
 <footer class="footer-custom">
     <div class="container">
@@ -105,3 +105,4 @@
 </body>
 </html>
 
+<?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/layouts/public.blade.php ENDPATH**/ ?>
