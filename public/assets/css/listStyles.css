@@ -1,0 +1,184 @@
+:root {
+    --change-blue: #004c9e;
+    --change-yellow: #ffcc00;
+    --change-text-dark: #202020;
+    --change-light-bg: #f4f4f8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--change-text-dark);
+}
+
+.navbar-custom {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.btn-yellow {
+    background-color: var(--change-yellow);
+    color: var(--change-text-dark);
+    font-weight: 600;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.btn-yellow:hover {
+    background-color: #e6b800;
+    color: var(--change-text-dark);
+}
+
+/* Search Section Styling */
+.search-bar-container {
+    padding: 1rem 0;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Filter Button for Mobile */
+.btn-filter-mobile {
+    border-color: #ced4da;
+    color: var(--change-text-dark);
+    background-color: white;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    margin-right: 0.5rem;
+}
+
+.btn-filter-mobile svg {
+    margin-right: 0.5rem;
+}
+
+/* Filter Sidebar Styling (Desktop) */
+.sidebar {
+    position: sticky;
+    top: 60px; /* Below fixed navbar */
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding-right: 1.5rem;
+}
+
+.filter-section {
+    margin-bottom: 2rem;
+    padding-right: 1rem; /* To match desktop view spacing */
+}
+
+.filter-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--change-text-dark);
+}
+
+.filter-chip-sidebar {
+    background-color: var(--change-light-bg);
+    color: var(--change-blue);
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.filter-chip-sidebar:hover {
+    background-color: #e0e0e0;
+    color: var(--change-blue);
+}
+
+.filter-chip-sidebar.active {
+    background-color: var(--change-blue);
+    color: white;
+}
+
+/* Petition List Item Styling */
+.petition-item {
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.15s;
+}
+
+.petition-item:hover {
+    background-color: #fafafa;
+}
+
+.petition-item-details {
+    flex-grow: 1;
+}
+
+.petition-item-image {
+    width: 80px; /* Fixed size for list view image */
+    height: 80px;
+    margin-left: 1rem;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.petition-item-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    color: var(--change-text-dark);
+    text-decoration: none;
+}
+
+.petition-item-title:hover {
+    color: var(--change-blue);
+}
+
+.petition-metadata {
+    font-size: 0.85rem;
+    color: #585858;
+    margin-bottom: 0.25rem;
+}
+
+.petition-signatures {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #585858;
+}
+
+/* Pagination */
+.pagination-custom .page-item.active .page-link {
+    background-color: var(--change-blue);
+    border-color: var(--change-blue);
+    color: white;
+}
+.pagination-custom .page-link {
+    color: var(--change-blue);
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 0 0.25rem;
+}
+
+/* Footer */
+.footer-custom {
+    background-color: white;
+    padding: 3rem 0 1rem 0;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.footer-heading {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--change-text-dark);
+}
+
+.footer-link {
+    display: block;
+    color: #585858;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer-link:hover {
+    color: var(--change-blue);
+}
