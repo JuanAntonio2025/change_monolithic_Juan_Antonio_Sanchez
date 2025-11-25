@@ -25,7 +25,7 @@
                 <div class="col-12 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/desiderioysoledad_los3%20(1).webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="../../../resources/images/desiderioysoledad_los3%20(1).webp" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -37,7 +37,7 @@
                 <div class="col-12 col-lg-3 d-none d-lg-block">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/pornagore_elpais.webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="../../../resources/images/pornagore_elpais.webp" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -49,7 +49,7 @@
                 <div class="col-12 col-lg-3 d-none d-lg-block">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/soloelpueblosalvaalpueblo5.webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="../../../resources/images/soloelpueblosalvaalpueblo5.webp" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -104,7 +104,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/JACarMOCmNQsrUQ-800x450-noPad.webp" class="petition-image" alt="Salud Mental">
+                            <img src="../../../resources/images/JACarMOCmNQsrUQ-800x450-noPad.webp" class="petition-image" alt="Salud Mental">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Salud</span>
@@ -117,7 +117,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/XZehjjclUZeHmQa-800x450-noPad.webp" class="petition-image" alt="Justicia">
+                            <img src="../../../resources/images/XZehjjclUZeHmQa-800x450-noPad.webp" class="petition-image" alt="Justicia">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Justicia</span>
@@ -130,7 +130,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp" class="petition-image" alt="Educación">
+                            <img src="../../../resources/images/ArnnsibjtqWOsuJ-800x450-noPad.webp" class="petition-image" alt="Educación">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Educación</span>
@@ -143,7 +143,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../../public/assets/images/XvzyTUYFsYcnqzV-800x450-noPad.webp" class="petition-image" alt="Violencia">
+                            <img src="../../../resources/images/XvzyTUYFsYcnqzV-800x450-noPad.webp" class="petition-image" alt="Violencia">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Derechos Humanos</span>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="position-relative">
-                        <img src="../../../public/assets/images/contribuye.webp" class="img-fluid" alt="Comunidad Change.org">
+                        <img src="../../../resources/images/contribuye.webp" class="img-fluid" alt="Comunidad Change.org">
                     </div>
                 </div>
             </div>

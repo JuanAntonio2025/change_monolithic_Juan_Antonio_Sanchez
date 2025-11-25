@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Change.org - El cambio comienza aquí</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script async src="{{asset('assets/js/*')}}"></script>
 </head>
@@ -31,7 +30,7 @@
             <div class="d-flex align-items-center">
                 <a href="petitions/index" class="btn btn-link text-decoration-none text-dark fw-bold me-2">Buscar</a>
                 <button class="btn btn-outline-dark me-2 fw-bold"><a class="btn-enlaces" href="create.html">Inicia una petición</a></button>
-                <button class="btn fw-bold">Entrar</button>
+                <button class="btn fw-bold"><a class="btn-enlaces" href="/login">Entrar</a></button>
             </div>
         </div>
     </div>

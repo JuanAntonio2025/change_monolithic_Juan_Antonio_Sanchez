@@ -20,9 +20,9 @@ Route::controller(\App\Http\Controllers\PetitionController::class)->group(functi
     Route::get('mispeticiones', 'listMine')->name('petitions.mine');
     Route::get('peticionesfirmadas', 'peticionesFirmadas')->name('peticiones.peticionesfirmadas');
     Route::get('petitions/{id}', 'show')->name('petitions.show');
-    Route::get('petition/add', 'create')->name('peticiones.create');
-    Route::post('petition', 'store')->name('peticiones.store');
-    Route::delete('petitions/{id}', 'delete')->name('peticiones.delete');
+    Route::get('peticion/add', 'create')->name('peticiones.create');
+    Route::post('peticion', 'store')->name('peticiones.store');
+    Route::delete('peticiones/{id}', 'delete')->name('peticiones.delete');
     Route::put('peticiones/{id}', 'update')->name('peticiones.update');
     Route::post('peticiones/firmar/{id}', 'firmar')->name('peticiones.firmar');
     Route::get('peticiones/edit/{id}', 'update')->name('peticiones.edit');
