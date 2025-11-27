@@ -16,7 +16,9 @@ class Petition extends Model
         'description',
         'addressee',
         'signatories',
-        'status'
+        'status',
+        'user_id',
+        'category_id',
     ];
 
     protected $hidden = ['user_id', 'category_id'];

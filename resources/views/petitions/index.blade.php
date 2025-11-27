@@ -101,22 +101,25 @@
                 <span class="filter-chip">Justicia Económica</span>
             </div>-->
 
-            @foreach($petitions as $petition)
+
             <div class="row g-4" id="peticion">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="petition-card">
-                        <div class="petition-image-container">
-                            <img src="{{asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')}}" class="petition-image" alt="Salud Mental">
-                        </div>
-                        <div class="petition-details">
-                            <span class="petition-category">{{$petition->category->name}}</span>
-                            <h3 class="petition-title">{{$petition->title}}</h3>
-                            <p class="petition-signatures">{{$petition->signatories}} firmas</p>
-                        </div>
+                @foreach($petitions as $petition)
+                    <div class="col-sm-6 col-lg-3">
+                        <a href="{{ route('petitions.show', $petition->id) }}" class="text-decoration-none text-dark">
+                            <div class="petition-card">
+                                <div class="petition-image-container">
+                                    <img src="{{ asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp') }}" class="petition-image" alt="{{ $petition->title }}">
+                                </div>
+                                <div class="petition-details">
+                                    <span class="petition-category">{{ $petition->category->name }}</span>
+                                    <h3 class="petition-title">{{ $petition->title }}</h3>
+                                    <p class="petition-signatures">{{ $petition->signatories }} firmas</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </section>
 
@@ -124,10 +127,5 @@
 
     <script>
         lucide.createIcons();
-
-        peticion = document.getElementById('peticion');
-        peticion.addEventListener('click', function() {
-            window.location.href = "{{route('petitions.show', $petition->id)}}";
-        })
     </script>
 @endsection

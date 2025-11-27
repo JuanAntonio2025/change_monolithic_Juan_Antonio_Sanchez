@@ -1,41 +1,41 @@
-@extends('layouts.public')
-
-@section('content')
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/signStyle.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+<?php $__env->startSection('content'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/signStyle.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
 
     <div class="container mt-3">
-        @if (session('success'))
+        <?php if(session('success')): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
+                <?php echo e(session('success')); ?>
 
-        @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        @endif
+        <?php endif; ?>
+
+        <?php if(session('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo e(session('error')); ?>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
     </div>
 
     <main class="container py-4">
         <div class="row">
             <div class="col-lg-8">
-                <h1 class="pet-title">{{$petition->title}}</h1>
+                <h1 class="pet-title"><?php echo e($petition->title); ?></h1>
                 <div class="petition-hero-image-container mb-4">
-                    <img src="{{asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')}}" class="petition-hero-image" alt="Imagen principal de la petición">
+                    <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-hero-image" alt="Imagen principal de la petición">
                 </div>
                 <div class="mt-4">
                     <h2 class="content-section-title">El problema</h2>
-                    <p>{{$petition->description}}</p>
+                    <p><?php echo e($petition->description); ?></p>
                 </div>
                 <div class="creator-info">
                     <img src="https://placehold.co/40x40/585858/fff?text=M" alt="Avatar del creador">
                     <div>
-                        <div class="creator-name">{{$petition->user->name}}</div>
+                        <div class="creator-name"><?php echo e($petition->user->name); ?></div>
                         <div class="creator-desc">Creador de la Petición</div>
                     </div>
                 </div>
@@ -87,25 +87,25 @@
             <div class="col-lg-4 d-none d-lg-block">
                 <div class="sidebar-sticky">
                     <div class="signature-box">
-                        <h2 class="signature-count text-center">{{$petition->signatories}}</h2>
+                        <h2 class="signature-count text-center"><?php echo e($petition->signatories); ?></h2>
                         <div class="signature-goal text-center">Firmas Verificadas</div>
                         <hr>
-                        @if(Auth::guest())
+                        <?php if(Auth::guest()): ?>
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                                    <a href="{{ route('login') }}">Firmar la petición</a>
+                                    <a href="<?php echo e(route('login')); ?>">Firmar la petición</a>
                                 </button>
                             </div>
-                        @else
-                            <form action="{{ route('petitions.sign', $petition->id) }}" method="POST">
-                                @csrf
+                        <?php else: ?>
+                            <form action="<?php echo e(route('petitions.sign', $petition->id)); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
                                 <div class="d-grid mb-3">
                                     <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
                                         Firmar la petición
                                     </button>
                                 </div>
                             </form>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -116,26 +116,28 @@
     <div class="mobile-sign-fixed d-lg-none">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <div class="signature-count small">{{$petition->signatories}}</div>
+                <div class="signature-count small"><?php echo e($petition->signatories); ?></div>
                 <div class="signature-goal small" style="line-height: 1;">Firmas Verificadas</div>
             </div>
-            @if(Auth::guest())
+            <?php if(Auth::guest()): ?>
                 <div class="d-grid mb-3">
                     <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                        <a href="{{ route('login') }}" class="btn-enlaces">Firmar la petición</a>
+                        <a href="<?php echo e(route('login')); ?>" class="btn-enlaces">Firmar la petición</a>
                     </button>
                 </div>
-            @else
-                <form action="{{ route('petitions.sign', $petition->id) }}" method="POST">
-                    @csrf
+            <?php else: ?>
+                <form action="<?php echo e(route('petitions.sign', $petition->id)); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
                             Firmar la petición
                         </button>
                     </div>
                 </form>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/petitions/show.blade.php ENDPATH**/ ?>

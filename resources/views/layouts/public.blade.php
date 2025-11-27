@@ -10,7 +10,7 @@
     <title>Change.org - El cambio comienza aquí</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <script async src="{{asset('assets/js/*')}}"></script>
+    <script type="module" src="{{asset('assets/js/bootstrap.js')}}"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-white border-bottom py-3 sticky-top">
@@ -18,23 +18,63 @@
         <a class="navbar-brand fw-bold text-danger" href="/">
             Change.org
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Mis peticiones</a></li>
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Programa de socios/as</a></li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{{ route('petitions.mine') }}">Mis peticiones</a>
+                    </li>
+                @endauth
+
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#">Programa de socios/as</a>
+                </li>
             </ul>
+
             <div class="d-flex align-items-center">
-                <a href="petitions/index" class="btn btn-link text-decoration-none text-dark fw-bold me-2">Buscar</a>
-                <button class="btn btn-outline-dark me-2 fw-bold"><a class="btn-enlaces" href="create.html">Inicia una petición</a></button>
-                <button class="btn fw-bold"><a class="btn-enlaces" href="/login">Entrar</a></button>
+                <a href="{{ route('petitions.index') }}" class="btn btn-link text-decoration-none text-dark fw-bold me-2">
+                    Buscar
+                </a>
+
+                @guest
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('login') }}">Entrar</a>
+                    </button>
+
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('register') }}">Registrarse</a>
+                    </button>
+
+                    <button class="btn me-2 fw-bold btn-outline-danger">
+                        <a class="btn-enlaces" href="{{ route('login') }}">Inicia una petición</a>
+                    </button>
+                @endguest
+
+                @auth
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('peticiones.create') }}">Inicia una petición</a>
+                    </button>
+
+                    <a href="{{ route('logout') }}"
+                       class="btn btn-danger fw-bold"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Cerrar sesión
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endauth
             </div>
         </div>
     </div>
 </nav>
+
 
 @yield('content')
 
@@ -88,6 +128,8 @@
         </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

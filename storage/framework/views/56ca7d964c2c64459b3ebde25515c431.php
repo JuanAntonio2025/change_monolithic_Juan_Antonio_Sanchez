@@ -7,8 +7,13 @@
             <p class="hero-subtitle">Únete a 567.822.918 personas que están impulsando un cambio real en sus comunidades.</p>
 
             <div class="d-flex justify-content-center mb-5">
-                <button class="btn btn-yellow me-3"><a class="btn-enlaces" href="create.html">Crear una petición</a></button>
-                <button class="btn btn-outline-dark"><a class="btn-enlaces" href="create.html">Comenzar con IA</a></button>
+                <a href="<?php echo e(route('peticiones.create')); ?>" class="btn btn-yellow me-3">
+                    Crear una petición
+                </a>
+
+                <a href="<?php echo e(route('peticiones.create')); ?>" class="btn btn-outline-dark">
+                    Comenzar con IA
+                </a>
             </div>
 
             <div class="row g-3 justify-content-center position-relative">
@@ -27,7 +32,7 @@
                 <div class="col-12 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/desiderioysoledad_los3%20(1).webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="<?php echo e(asset('assets/images/desiderioysoledad_los3 (1).webp')); ?>" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -39,7 +44,7 @@
                 <div class="col-12 col-lg-3 d-none d-lg-block">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/pornagore_elpais.webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="<?php echo e(asset('assets/images/entrega_firmas_guardias_medicas_4r (1).webp')); ?>" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -51,7 +56,7 @@
                 <div class="col-12 col-lg-3 d-none d-lg-block">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/soloelpueblosalvaalpueblo5.webp" class="petition-image" alt="Petición lateral 1">
+                            <img src="<?php echo e(asset('assets/images/pornagore_elpais.webp')); ?>" class="petition-image" alt="Petición lateral 1">
                         </div>
                         <div class="petition-details p-2">
                             <span class="petition-category">Victoria</span>
@@ -106,7 +111,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/JACarMOCmNQsrUQ-800x450-noPad.webp" class="petition-image" alt="Salud Mental">
+                            <img src="<?php echo e(asset('assets/images/JACarMOCmNQsrUQ-800x450-noPad.webp')); ?>" class="petition-image" alt="Salud Mental">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Salud</span>
@@ -119,7 +124,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/XZehjjclUZeHmQa-800x450-noPad.webp" class="petition-image" alt="Justicia">
+                            <img src="<?php echo e(asset('assets/images/XZehjjclUZeHmQa-800x450-noPad.webp')); ?>" class="petition-image" alt="Justicia">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Justicia</span>
@@ -132,7 +137,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/ArnnsibjtqWOsuJ-800x450-noPad.webp" class="petition-image" alt="Educación">
+                            <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-image" alt="Educación">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Educación</span>
@@ -145,7 +150,7 @@
                 <div class="col-sm-6 col-lg-3">
                     <div class="petition-card">
                         <div class="petition-image-container">
-                            <img src="../../images/XvzyTUYFsYcnqzV-800x450-noPad.webp" class="petition-image" alt="Violencia">
+                            <img src="<?php echo e(asset('assets/images/XvzyTUYFsYcnqzV-800x450-noPad.webp')); ?>" class="petition-image" alt="Violencia">
                         </div>
                         <div class="petition-details">
                             <span class="petition-category">Derechos Humanos</span>
@@ -169,7 +174,7 @@
                 </div>
                 <div class="col-md-6 d-flex justify-content-center">
                     <div class="position-relative">
-                        <img src="../../images/contribuye.webp" class="img-fluid" alt="Comunidad Change.org">
+                        <img src="<?php echo e(asset('assets/images/contribuye.webp')); ?>" class="img-fluid" alt="Comunidad Change.org">
                     </div>
                 </div>
             </div>

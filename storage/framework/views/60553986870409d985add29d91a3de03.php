@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/searchStyles.css')); ?>">
@@ -101,22 +99,25 @@
                 <span class="filter-chip">Justicia Económica</span>
             </div>-->
 
-            <?php $__currentLoopData = $petitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $petition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="row g-4">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="petition-card">
-                        <div class="petition-image-container">
-                            <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-image" alt="Salud Mental">
-                        </div>
-                        <div class="petition-details">
-                            <span class="petition-category"><?php echo e($petition->category->name); ?></span>
-                            <h3 class="petition-title"><?php echo e($petition->title); ?></h3>
-                            <p class="petition-signatures"><?php echo e($petition->signatories); ?> firmas</p>
-                        </div>
+
+            <div class="row g-4" id="peticion">
+                <?php $__currentLoopData = $petitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $petition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-sm-6 col-lg-3">
+                        <a href="<?php echo e(route('petitions.show', $petition->id)); ?>" class="text-decoration-none text-dark">
+                            <div class="petition-card">
+                                <div class="petition-image-container">
+                                    <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-image" alt="<?php echo e($petition->title); ?>">
+                                </div>
+                                <div class="petition-details">
+                                    <span class="petition-category"><?php echo e($petition->category->name); ?></span>
+                                    <h3 class="petition-title"><?php echo e($petition->title); ?></h3>
+                                    <p class="petition-signatures"><?php echo e($petition->signatories); ?> firmas</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </section>
 
