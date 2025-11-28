@@ -25,15 +25,11 @@
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
-                @auth
+                <?php if (Auth::check()){?>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="{{ route('petitions.mine') }}">Mis peticiones</a>
                     </li>
-                @endauth
-
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Programa de socios/as</a>
-                </li>
+                <?php } ?>
             </ul>
 
             <div class="d-flex align-items-center">
@@ -41,21 +37,7 @@
                     Buscar
                 </a>
 
-                @guest
-                    <button class="btn btn-outline-dark me-2 fw-bold">
-                        <a class="btn-enlaces" href="{{ route('login') }}">Entrar</a>
-                    </button>
-
-                    <button class="btn btn-outline-dark me-2 fw-bold">
-                        <a class="btn-enlaces" href="{{ route('register') }}">Registrarse</a>
-                    </button>
-
-                    <button class="btn me-2 fw-bold btn-outline-danger">
-                        <a class="btn-enlaces" href="{{ route('login') }}">Inicia una petición</a>
-                    </button>
-                @endguest
-
-                @auth
+                <?php if (Auth::check()){?>
                     <button class="btn btn-outline-dark me-2 fw-bold">
                         <a class="btn-enlaces" href="{{ route('peticiones.create') }}">Inicia una petición</a>
                     </button>
@@ -69,7 +51,15 @@
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                @endauth
+                <?php } else {?>
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('login') }}">Entrar</a>
+                    </button>
+
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('register') }}">Registrarse</a>
+                    </button>
+                <?php }?>
             </div>
         </div>
     </div>

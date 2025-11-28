@@ -21,10 +21,15 @@ class PetitionController extends Controller
 
     public function listMine()
     {
-        $userId = auth()->id();
-        $petitions = \App\Models\Petition::where('user_id', $userId)->get();
+        try {
+            $userId = auth()->id();
+            $petitions = \App\Models\Petition::where('user_id', $userId)->get();
 
-        return view('petitions.mine', compact('petitions'));
+            return view('petitions.mine', compact('petitions'));
+
+        } catch (\Throwable $th) {
+            return back()->withErrors([$th->getMessage()])->withInput();
+        }
     }
 
     public function firmar(Request $request, $id)
@@ -54,10 +59,7 @@ class PetitionController extends Controller
 
     public function create()
     {
-        // Recupera todas las categorías activas o disponibles
         $categories = Category::all();
-
-        // Pasa las categorías a la vista
         return view('petitions.create', compact('categories'));
     }
 
@@ -68,7 +70,33 @@ class PetitionController extends Controller
             'description' => 'required',
             'addressee' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
+            //'file' => 'required'
         ]);
+
+        /*$input = $request->all();
+
+        try {
+            $category = Category::findOrFail($input['category'])
+            $user = auth()->id()
+            $petition = new Petition($input)
+            $petition->category()->associate($category)
+            $petition->user()->associate($user)
+
+            $petition->signatories = 0
+            $petition->status = 'pending'
+
+            $res=$petition->save()
+
+            if($res) {
+                $res_file = $this->fileUpload($request, $petition->id)
+                if ($res_file) {
+                    return redirect('mispeticiones')
+                }
+            }
+        } catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput()
+        }
+        */
 
         $user = auth()->id();
 
@@ -76,7 +104,6 @@ class PetitionController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'addressee' => $request->addressee,
-
             'user_id' => $user,
             'category_id' => $request->category_id,
             'signatories' => 0,
@@ -85,5 +112,22 @@ class PetitionController extends Controller
 
         return redirect()->route('petitions.mine')->with('success', '¡Petición creada con éxito!');
     }
+
+    /*
+    public function fileUpload(Request $req, $petition_id = null) {
+            $file = $req->file('file')
+            $fileModel = new File
+            $fileModel->petition_id = $petition_id
+            if ($req->file('file')) {
+                $filename = $fileName = time() . '_' . $file->getClientOriginalName()
+                $file->move('petitions')
+            }
+
+            $fileModel->name = $filename
+            $fileModel->file_path = $filename
+            $req = $fileModel->save()
+            return $fileModel
+        }
+    */
 
 }
