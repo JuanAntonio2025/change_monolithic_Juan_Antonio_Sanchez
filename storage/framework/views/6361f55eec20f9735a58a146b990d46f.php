@@ -108,9 +108,18 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
+                            <!--<div class="mb-3">
+                                <label for="file" class="form-label fw-bold">Foto para la Petición</label>
+                                <input type="file" class="form-control error('file') is-invalid enderror" id="file" name="file" accept="image/*">
+                                <div class="form-text">Sube una imagen relevante para tu petición</div>
+                                error('file')
+                                <div class="invalid-feedback">{$message }</div>
+                                enderror
+                            </div>-->
+
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-yellow fw-bold py-2">
-                                    Lanzar Petición
+                                    Publicar Petición
                                 </button>
                             </div>
                         </form>
@@ -120,5 +129,10 @@ unset($__errorArgs, $__bag); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>
+
+<!--
+
+
+-->
 
 <?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/petitions/create.blade.php ENDPATH**/ ?>

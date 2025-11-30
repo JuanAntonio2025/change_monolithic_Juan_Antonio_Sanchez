@@ -11,6 +11,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('mispeticiones', [\App\Http\Controllers\PetitionController::class, 'listMine'])->name('petitions.mine');
+    Route::get('peticionesfirmadas', [\App\Http\Controllers\PetitionController::class, 'peticionesFirmadas'])->name('petitions.peticionesfirmadas');
     Route::get('petitions/create', [\App\Http\Controllers\PetitionController::class, 'create'])->name('peticiones.create');
     Route::post('petitions', [\App\Http\Controllers\PetitionController::class, 'store'])->name('petitions.store');
     Route::get('petitions/{id}', [\App\Http\Controllers\PetitionController::class, 'show'])->name('petitions.show');
@@ -22,7 +23,6 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(\App\Http\Controllers\PetitionController::class)->group(function () {
     Route::get('petitions', 'index')->name('petitions.index');
-    //Route::get('peticionesfirmadas', 'peticionesFirmadas')->name('peticiones.peticionesfirmadas');
     Route::get('petitions/{id}', 'show')->name('petitions.show');
     //Route::get('peticion/add', 'create')->name('peticiones.create');
     //Route::post('peticion', 'store')->name('peticiones.store');

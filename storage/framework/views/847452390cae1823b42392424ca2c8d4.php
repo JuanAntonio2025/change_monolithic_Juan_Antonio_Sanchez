@@ -25,15 +25,14 @@
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
-                <?php if(auth()->guard()->check()): ?>
+                <?php if (Auth::check()){?>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="<?php echo e(route('petitions.mine')); ?>">Mis peticiones</a>
                     </li>
-                <?php endif; ?>
-
-                <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Programa de socios/as</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="<?php echo e(route('petitions.peticionesfirmadas')); ?>">Mis firmas</a>
+                    </li>
+                <?php } ?>
             </ul>
 
             <div class="d-flex align-items-center">
@@ -41,21 +40,7 @@
                     Buscar
                 </a>
 
-                <?php if(auth()->guard()->guest()): ?>
-                    <button class="btn btn-outline-dark me-2 fw-bold">
-                        <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Entrar</a>
-                    </button>
-
-                    <button class="btn btn-outline-dark me-2 fw-bold">
-                        <a class="btn-enlaces" href="<?php echo e(route('register')); ?>">Registrarse</a>
-                    </button>
-
-                    <button class="btn me-2 fw-bold btn-outline-danger">
-                        <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Inicia una petición</a>
-                    </button>
-                <?php endif; ?>
-
-                <?php if(auth()->guard()->check()): ?>
+                <?php if (Auth::check()){?>
                     <button class="btn btn-outline-dark me-2 fw-bold">
                         <a class="btn-enlaces" href="<?php echo e(route('peticiones.create')); ?>">Inicia una petición</a>
                     </button>
@@ -69,7 +54,15 @@
                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                         <?php echo csrf_field(); ?>
                     </form>
-                <?php endif; ?>
+                <?php } else {?>
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Entrar</a>
+                    </button>
+
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('register')); ?>">Registrarse</a>
+                    </button>
+                <?php }?>
             </div>
         </div>
     </div>

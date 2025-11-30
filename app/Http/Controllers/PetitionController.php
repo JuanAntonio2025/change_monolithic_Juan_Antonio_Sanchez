@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\File;
 use App\Models\Petition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -70,33 +71,8 @@ class PetitionController extends Controller
             'description' => 'required',
             'addressee' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
-            //'file' => 'required'
+            //'file' => 'required|mimes:jpeg,png,jpg,gif,webp,avif,svg',
         ]);
-
-        /*$input = $request->all();
-
-        try {
-            $category = Category::findOrFail($input['category'])
-            $user = auth()->id()
-            $petition = new Petition($input)
-            $petition->category()->associate($category)
-            $petition->user()->associate($user)
-
-            $petition->signatories = 0
-            $petition->status = 'pending'
-
-            $res=$petition->save()
-
-            if($res) {
-                $res_file = $this->fileUpload($request, $petition->id)
-                if ($res_file) {
-                    return redirect('mispeticiones')
-                }
-            }
-        } catch(\Exception $e) {
-            return back()->withError($e->getMessage())->withInput()
-        }
-        */
 
         $user = auth()->id();
 
@@ -107,27 +83,50 @@ class PetitionController extends Controller
             'user_id' => $user,
             'category_id' => $request->category_id,
             'signatories' => 0,
-            'status' => 'accepted',
+            'status' => 'pending',
         ]);
+
+        /*if ($request->hasFile('file')) {
+            $this->fileUpload($request, $petition->id);
+        }*/
 
         return redirect()->route('petitions.mine')->with('success', '¡Petición creada con éxito!');
     }
 
-    /*
-    public function fileUpload(Request $req, $petition_id = null) {
-            $file = $req->file('file')
-            $fileModel = new File
-            $fileModel->petition_id = $petition_id
-            if ($req->file('file')) {
-                $filename = $fileName = time() . '_' . $file->getClientOriginalName()
-                $file->move('petitions')
+    public function fileUpload(Request $req, $petition_id) {
+        $file = $req->file('file');
+
+        if ($file) {
+            $originalName = $file->getClientOriginalName();
+            $filePath = $file->store('fotos', 'public');
+            $fileModel = new File;
+            $fileModel->petition_id = $petition_id;
+            $fileModel->name = $originalName;
+            $fileModel->file_path = $filePath;
+            $fileModel->save();
+
+            return $fileModel;
+        }
+
+        return null;
+    }
+
+    public function peticionesFirmadas(Request $request)
+    {
+        try {
+            $user = auth()->user();
+
+            if (!$user) {
+                return redirect()->route('login');
             }
 
-            $fileModel->name = $filename
-            $fileModel->file_path = $filename
-            $req = $fileModel->save()
-            return $fileModel
+            $petitions = $user->signedPetitions;
+
+            return view('petitions.peticionesfirmadas', compact('petitions'));
+        }catch (\Exception $exception){
+            return back()->withError( $exception->getMessage())->withInput();
         }
-    */
+    }
+
 
 }

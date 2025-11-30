@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="{{ route('petitions.mine') }}">Mis peticiones</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{{ route('petitions.peticionesfirmadas') }}">Mis firmas</a>
+                    </li>
                 <?php } ?>
             </ul>
 
