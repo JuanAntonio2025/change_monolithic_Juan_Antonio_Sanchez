@@ -25,7 +25,7 @@
                 <div class="petition-hero-image-container mb-4">
                     @php
                         $firstFile = $petition->files->first();
-                        $imagePath = $firstFile ? 'storage/' . $firstFile->file_path : null;
+                        $imagePath = $firstFile ? $firstFile->file_path : null;
                     @endphp
 
                     <img src="{{ asset($imagePath) }}"

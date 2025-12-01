@@ -1,8 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/signStyle.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
-
     <div class="container mt-3">
         <?php if(session('success')): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -26,17 +23,32 @@
             <div class="col-lg-8">
                 <h1 class="pet-title"><?php echo e($petition->title); ?></h1>
                 <div class="petition-hero-image-container mb-4">
-                    <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-hero-image" alt="Imagen principal de la petición">
+                    <?php
+                        $firstFile = $petition->files->first();
+                        $imagePath = $firstFile ? $firstFile->file_path : null;
+                    ?>
+
+                    <img src="<?php echo e(asset($imagePath)); ?>"
+                         class="petition-image"
+                         alt="<?php echo e($petition->title); ?>">
+                </div>
+                <div class="mt-4">
+                    <p>Destinatario: <?php echo e($petition->addressee); ?></p>
                 </div>
                 <div class="mt-4">
                     <h2 class="content-section-title">El problema</h2>
                     <p><?php echo e($petition->description); ?></p>
                 </div>
                 <div class="creator-info">
-                    <img src="https://placehold.co/40x40/585858/fff?text=M" alt="Avatar del creador">
+                    <?php
+                        $nombre = $petition->user->name;
+                        $letra = ucfirst(substr($nombre, 0, 1));
+                    ?>
+
+                    <img src="https://placehold.co/40x40/585858/fff?text=<?php echo e($letra); ?>" alt="Avatar del creador">
                     <div>
                         <div class="creator-name"><?php echo e($petition->user->name); ?></div>
-                        <div class="creator-desc">Creador de la Petición</div>
+                        <div class="creator-desc">Creador/a de la Petición</div>
                     </div>
                 </div>
                 <div class="mt-5">
@@ -121,8 +133,8 @@
             </div>
             <?php if(Auth::guest()): ?>
                 <div class="d-grid mb-3">
-                    <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                        <a href="<?php echo e(route('login')); ?>" class="btn-enlaces">Firmar la petición</a>
+                    <button onclick="location.href=<?php echo e(route('login')); ?>" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                        Firmar la petición
                     </button>
                 </div>
             <?php else: ?>

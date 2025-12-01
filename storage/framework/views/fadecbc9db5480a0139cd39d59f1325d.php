@@ -14,7 +14,12 @@
                             <div class="petition-card">
 
                                 <div class="petition-image-container">
-                                    <img src="<?php echo e(asset($petition->image ?? 'assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>"
+                                    <?php
+                                        $firstFile = $petition->files->first();
+                                        $imagePath = $firstFile ? $firstFile->file_path : null;
+                                    ?>
+
+                                    <img src="<?php echo e(asset($imagePath)); ?>"
                                          class="petition-image"
                                          alt="<?php echo e($petition->title); ?>">
                                 </div>

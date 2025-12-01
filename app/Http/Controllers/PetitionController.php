@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PetitionController extends Controller
 {
     public function index() {
-        $petitions = Petition::all();
+        $petitions = Petition::with('files')->get();
         return view('petitions.index', compact('petitions'));
     }
 
@@ -97,12 +97,14 @@ class PetitionController extends Controller
         $file = $req->file('file');
 
         if ($file) {
+            $destino = public_path('fotos');
             $originalName = $file->getClientOriginalName();
-            $filePath = $file->store('fotos', 'public');
+            $file->move($destino, $originalName);
+            $relativePath = 'fotos/' . $originalName;
             $fileModel = new File;
             $fileModel->petition_id = $petition_id;
             $fileModel->name = $originalName;
-            $fileModel->file_path = $filePath;
+            $fileModel->file_path = $relativePath;
             $fileModel->save();
 
             return $fileModel;

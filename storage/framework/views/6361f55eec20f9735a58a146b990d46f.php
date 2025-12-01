@@ -3,12 +3,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-black text-white">
                         <h3 class="mb-0">Crear una Nueva Petición</h3>
                     </div>
                     <div class="card-body">
 
-                        <form action="<?php echo e(route('petitions.store')); ?>" method="POST">
+                        <form action="<?php echo e(route('petitions.store')); ?>" method="POST" enctype="multipart/form-data">
                             <?php echo csrf_field(); ?>
 
                             <div class="mb-3">
@@ -108,14 +108,28 @@ endif;
 unset($__errorArgs, $__bag); ?>
                             </div>
 
-                            <!--<div class="mb-3">
+                            <div class="mb-3">
                                 <label for="file" class="form-label fw-bold">Foto para la Petición</label>
-                                <input type="file" class="form-control error('file') is-invalid enderror" id="file" name="file" accept="image/*">
+                                <input type="file" class="form-control <?php $__errorArgs = ['file'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="file" name="file" accept="image/*">
                                 <div class="form-text">Sube una imagen relevante para tu petición</div>
-                                error('file')
-                                <div class="invalid-feedback">{$message }</div>
-                                enderror
-                            </div>-->
+                                <?php $__errorArgs = ['file'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
 
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-yellow fw-bold py-2">

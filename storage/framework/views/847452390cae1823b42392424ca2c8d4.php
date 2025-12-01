@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-white border-bottom py-3 sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold text-danger" href="/">
+        <a class="navbar-brand fw-bolder text-danger" href="/">
             Change.org
         </a>
 
