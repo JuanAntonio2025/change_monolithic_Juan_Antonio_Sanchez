@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-black text-white">
                         <h3 class="mb-0">Crear una Nueva Petición</h3>
                     </div>
                     <div class="card-body">

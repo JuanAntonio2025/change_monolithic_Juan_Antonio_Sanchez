@@ -1,9 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/searchStyles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <script src="https://unpkg.com/lucide@latest"></script>
     <div class="hero text-center">
         <div class="container container-lg">
@@ -23,7 +21,7 @@
     </div>
 
     <div class="container container-lg">
-        <h2 class="h4 fw-bold mb-4">Explorar</h2>
+        <h2 class="h4 fw-bold mb-4 mt-4">Explorar</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="explore-card">

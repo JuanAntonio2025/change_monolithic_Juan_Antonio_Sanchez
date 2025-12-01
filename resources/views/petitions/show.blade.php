@@ -1,10 +1,7 @@
 @extends('layouts.public')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/signStyle.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
     <div class="container mt-3">
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -43,10 +40,15 @@
                     <p>{{$petition->description}}</p>
                 </div>
                 <div class="creator-info">
-                    <img src="https://placehold.co/40x40/585858/fff?text=M" alt="Avatar del creador">
+                    @php
+                        $nombre = $petition->user->name;
+                        $letra = ucfirst(substr($nombre, 0, 1));
+                    @endphp
+
+                    <img src="https://placehold.co/40x40/585858/fff?text={{$letra}}" alt="Avatar del creador">
                     <div>
                         <div class="creator-name">{{$petition->user->name}}</div>
-                        <div class="creator-desc">Creador de la Petición</div>
+                        <div class="creator-desc">Creador/a de la Petición</div>
                     </div>
                 </div>
                 <div class="mt-5">
@@ -131,8 +133,8 @@
             </div>
             @if(Auth::guest())
                 <div class="d-grid mb-3">
-                    <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                        <a href="{{ route('login') }}" class="btn-enlaces">Firmar la petición</a>
+                    <button onclick="location.href={{ route('login') }}" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                        Firmar la petición
                     </button>
                 </div>
             @else
