@@ -20,6 +20,12 @@ class PetitionController extends Controller
         return view('petitions.show', compact('petition'));
     }
 
+    public function create()
+    {
+        $categories = Category::all();
+        return view('petitions.create', compact('categories'));
+    }
+
     public function listMine()
     {
         try {
@@ -56,12 +62,6 @@ class PetitionController extends Controller
             \Log::error("Error al firmar la petición ID {$id}: " . $e->getMessage());
             return back()->with('error', 'Ocurrió un error inesperado al procesar la firma.');
         }
-    }
-
-    public function create()
-    {
-        $categories = Category::all();
-        return view('petitions.create', compact('categories'));
     }
 
     public function store(Request $request)
