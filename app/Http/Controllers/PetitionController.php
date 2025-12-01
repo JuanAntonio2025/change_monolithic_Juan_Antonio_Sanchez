@@ -71,7 +71,7 @@ class PetitionController extends Controller
             'description' => 'required',
             'addressee' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
-            //'file' => 'required|mimes:jpeg,png,jpg,gif,webp,avif,svg',
+            'file' => 'required',
         ]);
 
         $user = auth()->id();
@@ -86,9 +86,9 @@ class PetitionController extends Controller
             'status' => 'pending',
         ]);
 
-        /*if ($request->hasFile('file')) {
+        if ($request->hasFile('file')) {
             $this->fileUpload($request, $petition->id);
-        }*/
+        }
 
         return redirect()->route('petitions.mine')->with('success', '¡Petición creada con éxito!');
     }

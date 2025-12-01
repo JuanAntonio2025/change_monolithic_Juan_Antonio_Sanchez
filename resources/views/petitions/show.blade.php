@@ -26,7 +26,17 @@
             <div class="col-lg-8">
                 <h1 class="pet-title">{{$petition->title}}</h1>
                 <div class="petition-hero-image-container mb-4">
-                    <img src="{{asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')}}" class="petition-hero-image" alt="Imagen principal de la petición">
+                    @php
+                        $firstFile = $petition->files->first();
+                        $imagePath = $firstFile ? 'storage/' . $firstFile->file_path : null;
+                    @endphp
+
+                    <img src="{{ asset($imagePath) }}"
+                         class="petition-image"
+                         alt="{{ $petition->title }}">
+                </div>
+                <div class="mt-4">
+                    <p>Destinatario: {{$petition->addressee}}</p>
                 </div>
                 <div class="mt-4">
                     <h2 class="content-section-title">El problema</h2>

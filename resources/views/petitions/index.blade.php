@@ -108,7 +108,14 @@
                         <a href="{{ route('petitions.show', $petition->id) }}" class="text-decoration-none text-dark">
                             <div class="petition-card">
                                 <div class="petition-image-container">
-                                    <img src="{{ asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp') }}" class="petition-image" alt="{{ $petition->title }}">
+                                    @php
+                                        $firstFile = $petition->files->first();
+                                        $imagePath = $firstFile ? 'storage/' . $firstFile->file_path : null;
+                                    @endphp
+
+                                    <img src="{{ asset($imagePath) }}"
+                                         class="petition-image"
+                                         alt="{{ $petition->title }}">
                                 </div>
                                 <div class="petition-details">
                                     <span class="petition-category">{{ $petition->category->name }}</span>

@@ -16,7 +16,12 @@
                             <div class="petition-card">
 
                                 <div class="petition-image-container">
-                                    <img src="{{ asset($petition->image ?? 'assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp') }}"
+                                    @php
+                                        $firstFile = $petition->files->first();
+                                        $imagePath = $firstFile ? 'storage/' . $firstFile->file_path : null;
+                                    @endphp
+
+                                    <img src="{{ asset($imagePath) }}"
                                          class="petition-image"
                                          alt="{{ $petition->title }}">
                                 </div>
