@@ -9,33 +9,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Change.org - El cambio comienza aquí</title>
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
-    <script async src="<?php echo e(asset('assets/js/*')); ?>"></script>
+    <script type="module" src="<?php echo e(asset('assets/js/bootstrap.js')); ?>"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-white border-bottom py-3 sticky-top">
     <div class="container">
-        <a class="navbar-brand fw-bold text-danger" href="/">
+        <a class="navbar-brand fw-bolder text-danger" href="/">
             Change.org
         </a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Mis peticiones</a></li>
-                <li class="nav-item"><a class="nav-link fw-bold" href="#">Programa de socios/as</a></li>
+                <?php if (Auth::check()){?>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="<?php echo e(route('petitions.mine')); ?>">Mis peticiones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="<?php echo e(route('petitions.peticionesfirmadas')); ?>">Mis firmas</a>
+                    </li>
+                <?php } ?>
             </ul>
+
             <div class="d-flex align-items-center">
-                <a href="petitions/index" class="btn btn-link text-decoration-none text-dark fw-bold me-2">Buscar</a>
-                <button class="btn btn-outline-dark me-2 fw-bold"><a class="btn-enlaces" href="create.html">Inicia una petición</a></button>
-                <button class="btn fw-bold">Entrar</button>
+                <a href="<?php echo e(route('petitions.index')); ?>" class="btn btn-link text-decoration-none text-dark fw-bold me-2">
+                    Buscar
+                </a>
+
+                <?php if (Auth::check()){?>
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('peticiones.create')); ?>">Inicia una petición</a>
+                    </button>
+
+                    <a href="<?php echo e(route('logout')); ?>"
+                       class="btn btn-danger fw-bold"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Cerrar sesión
+                    </a>
+
+                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                        <?php echo csrf_field(); ?>
+                    </form>
+                <?php } else {?>
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Entrar</a>
+                    </button>
+
+                    <button class="btn btn-outline-dark me-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('register')); ?>">Registrarse</a>
+                    </button>
+                <?php }?>
             </div>
         </div>
     </div>
 </nav>
+
 
 <?php echo $__env->yieldContent('content'); ?>
 
@@ -89,6 +121,8 @@
         </div>
     </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

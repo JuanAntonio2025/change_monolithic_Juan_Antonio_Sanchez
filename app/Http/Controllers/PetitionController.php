@@ -97,7 +97,7 @@ class PetitionController extends Controller
         $file = $req->file('file');
 
         if ($file) {
-            $destino = public_path('fotos');
+            $destino = public_path('fotos'); /*Crear carpeta fotos en el directorio public*/
             $originalName = $file->getClientOriginalName();
             $file->move($destino, $originalName);
             $relativePath = 'fotos/' . $originalName;

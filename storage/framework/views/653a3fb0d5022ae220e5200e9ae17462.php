@@ -1,23 +1,54 @@
 <?php $__env->startSection('content'); ?>
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/signStyle.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+    <div class="container mt-3">
+        <?php if(session('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo e(session('success')); ?>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+        <?php if(session('error')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo e(session('error')); ?>
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+    </div>
+
     <main class="container py-4">
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="pet-title"><?php echo e($petition->title); ?></h1>
                 <div class="petition-hero-image-container mb-4">
-                    <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-hero-image" alt="Imagen principal de la petición">
+                    <?php
+                        $firstFile = $petition->files->first();
+                        $imagePath = $firstFile ? $firstFile->file_path : null;
+                    ?>
+
+                    <img src="<?php echo e(asset($imagePath)); ?>"
+                         class="petition-image"
+                         alt="<?php echo e($petition->title); ?>">
+                </div>
+                <div class="mt-4">
+                    <p>Destinatario: <?php echo e($petition->addressee); ?></p>
                 </div>
                 <div class="mt-4">
                     <h2 class="content-section-title">El problema</h2>
                     <p><?php echo e($petition->description); ?></p>
                 </div>
                 <div class="creator-info">
-                    <img src="https://placehold.co/40x40/585858/fff?text=M" alt="Avatar del creador">
+                    <?php
+                        $nombre = $petition->user->name;
+                        $letra = ucfirst(substr($nombre, 0, 1));
+                    ?>
+
+                    <img src="https://placehold.co/40x40/585858/fff?text=<?php echo e($letra); ?>" alt="Avatar del creador">
                     <div>
                         <div class="creator-name"><?php echo e($petition->user->name); ?></div>
-                        <div class="creator-desc">Creador de la Petición</div>
+                        <div class="creator-desc">Creador/a de la Petición</div>
                     </div>
                 </div>
                 <div class="mt-5">
@@ -71,34 +102,22 @@
                         <h2 class="signature-count text-center"><?php echo e($petition->signatories); ?></h2>
                         <div class="signature-goal text-center">Firmas Verificadas</div>
                         <hr>
-                        <form>
-                            <div class="mb-3">
-                                <input type="text" class="form-control rounded-pill py-2" placeholder="Nombre" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control rounded-pill py-2" placeholder="Apellidos" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control rounded-pill py-2" placeholder="Correo electrónico" required>
-                            </div>
-                            <div class="mb-3">
-                                <label><input type="radio"/> Quiero saber si esta petición gana y cómo puedo ayudar a otras peticiones ciudadanas.</label>
-                            </div>
-                            <div class="mb-3">
-                                <label><input type="radio"/> No quiero saber como avanza esta petición ni otras peticiones importantes.</label>
-                            </div>
+                        <?php if(Auth::guest()): ?>
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                                    Firmar la petición
+                                    <a href="<?php echo e(route('login')); ?>">Firmar la petición</a>
                                 </button>
                             </div>
-                            <div class="form-check small text-muted mb-3">
-                                <input class="form-check-input" type="checkbox" value="" id="updatesCheck" checked>
-                                <label class="form-check-label" for="updatesCheck">
-                                    No mostrar publicamente mi firma y mi comentario en esta petición
-                                </label>
-                            </div>
-                        </form>
+                        <?php else: ?>
+                            <form action="<?php echo e(route('petitions.sign', $petition->id)); ?>" method="POST">
+                                <?php echo csrf_field(); ?>
+                                <div class="d-grid mb-3">
+                                    <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                                        Firmar la petición
+                                    </button>
+                                </div>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -109,58 +128,28 @@
     <div class="mobile-sign-fixed d-lg-none">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <div class="signature-count small">50.171</div>
-                <div class="signature-goal small" style="line-height: 1;">Firmas</div>
+                <div class="signature-count small"><?php echo e($petition->signatories); ?></div>
+                <div class="signature-goal small" style="line-height: 1;">Firmas Verificadas</div>
             </div>
-            <button class="btn btn-yellow fw-bold py-2 px-4" data-bs-toggle="modal" data-bs-target="#signatureModal">
-                Firmar
-            </button>
+            <?php if(Auth::guest()): ?>
+                <div class="d-grid mb-3">
+                    <button onclick="location.href=<?php echo e(route('login')); ?>" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                        Firmar la petición
+                    </button>
+                </div>
+            <?php else: ?>
+                <form action="<?php echo e(route('petitions.sign', $petition->id)); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                            Firmar la petición
+                        </button>
+                    </div>
+                </form>
+            <?php endif; ?>
         </div>
     </div>
 
-    <div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signatureModalLabel">Firma esta petición</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h2 class="signature-count text-center">50.171</h2>
-                    <div class="signature-goal text-center">Firmas Verificadas</div>
-                    <hr>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control rounded-pill py-2" placeholder="Nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control rounded-pill py-2" placeholder="Apellidos" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control rounded-pill py-2" placeholder="Correo electrónico" required>
-                        </div>
-                        <div class="mb-3">
-                            <label><input type="radio"/> Quiero saber si esta petición gana y cómo puedo ayudar a otras peticiones ciudadanas.</label>
-                        </div>
-                        <div class="mb-3">
-                            <label><input type="radio"/> No quiero saber como avanza esta petición ni otras peticiones importantes.</label>
-                        </div>
-                        <div class="d-grid mb-3">
-                            <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                                Firmar la petición
-                            </button>
-                        </div>
-                        <div class="form-check small text-muted mb-3">
-                            <input class="form-check-input" type="checkbox" value="" id="updatesCheck" checked>
-                            <label class="form-check-label" for="updatesCheck">
-                                No mostrar publicamente mi firma y mi comentario en esta petición
-                            </label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Alumno\Desktop\Repositorios\change_monolithic_Juan_Sanchez\resources\views/petitions/show.blade.php ENDPATH**/ ?>
