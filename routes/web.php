@@ -26,4 +26,16 @@ Route::controller(\App\Http\Controllers\PetitionController::class)->group(functi
     Route::get('petitions/{id}', 'show')->name('petitions.show');
 });
 
+Route::middleware('admin')->controller(\App\Http\Controllers\AdminPetitionsController::class)->group(function () {
+    Route::get('admin', 'index')->name('admin.home');
+    Route::get('admin/peticiones/index', 'index')->name('adminpeticiones.index');
+    Route::get('admin/peticiones/{id}', 'show')->name('adminpeticiones.show');
+    Route::get('admin/peticion/add', 'create')->name('adminpeticiones.create');
+    Route::get('admin/peticiones/edit/{id}', 'edit')->name('adminpeticiones.edit');
+    Route::post('admin/peticiones', 'store')->name('adminpeticiones.store');
+    Route::delete('admin/peticiones/{id}', 'delete')->name('adminpeticiones.delete');
+    Route::put('admin/peticiones/{id}', 'update')->name('adminpeticiones.update');
+    Route::put('admin/peticiones/estado/{id}', 'cambiarEstado')->name('adminpeticiones.estado');
+});
+
 require __DIR__.'/auth.php';
