@@ -105,7 +105,7 @@
                         @if(Auth::guest())
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                                    <a href="{{ route('login') }}">Firmar la petición</a>
+                                    <a class="btn-enlaces" href="{{ route('login') }}">Firmar la petición</a>
                                 </button>
                             </div>
                         @else
@@ -133,8 +133,8 @@
             </div>
             @if(Auth::guest())
                 <div class="d-grid mb-3">
-                    <button onclick="location.href={{ route('login') }}" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                        Firmar la petición
+                    <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                        <a class="btn-enlaces" href="{{ route('login') }}">Firmar la petición</a>
                     </button>
                 </div>
             @else

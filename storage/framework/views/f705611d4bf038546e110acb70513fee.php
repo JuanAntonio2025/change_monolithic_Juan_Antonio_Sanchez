@@ -1,9 +1,5 @@
-
-
 <?php $__env->startSection('content'); ?>
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/searchStyles.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <script src="https://unpkg.com/lucide@latest"></script>
     <div class="hero text-center">
         <div class="container container-lg">
@@ -23,7 +19,7 @@
     </div>
 
     <div class="container container-lg">
-        <h2 class="h4 fw-bold mb-4">Explorar</h2>
+        <h2 class="h4 fw-bold mb-4 mt-4">Explorar</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="explore-card">
@@ -101,22 +97,32 @@
                 <span class="filter-chip">Justicia Económica</span>
             </div>-->
 
-            <?php $__currentLoopData = $petitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $petition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
             <div class="row g-4" id="peticion">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="petition-card">
-                        <div class="petition-image-container">
-                            <img src="<?php echo e(asset('assets/images/ArnnsibjtqWOsuJ-800x450-noPad.webp')); ?>" class="petition-image" alt="Salud Mental">
-                        </div>
-                        <div class="petition-details">
-                            <span class="petition-category"><?php echo e($petition->category->name); ?></span>
-                            <h3 class="petition-title"><?php echo e($petition->title); ?></h3>
-                            <p class="petition-signatures"><?php echo e($petition->signatories); ?> firmas</p>
-                        </div>
+                <?php $__currentLoopData = $petitions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $petition): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-sm-6 col-lg-3">
+                        <a href="<?php echo e(route('petitions.show', $petition->id)); ?>" class="text-decoration-none text-dark">
+                            <div class="petition-card">
+                                <div class="petition-image-container">
+                                    <?php
+                                        $firstFile = $petition->files->first();
+                                        $imagePath = $firstFile ? $firstFile->file_path : 'assets/images/placeholder.webp';
+                                    ?>
+
+                                    <img src="<?php echo e(asset($imagePath)); ?>"
+                                         class="petition-image"
+                                         alt="<?php echo e($petition->title); ?>">
+                                </div>
+                                <div class="petition-details">
+                                    <span class="petition-category"><?php echo e($petition->category->name); ?></span>
+                                    <h3 class="petition-title"><?php echo e($petition->title); ?></h3>
+                                    <p class="petition-signatures"><?php echo e($petition->signatories); ?> firmas</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </section>
 
@@ -124,11 +130,6 @@
 
     <script>
         lucide.createIcons();
-
-        peticion = document.getElementById('peticion');
-        peticion.addEventListener('click', function() {
-            window.location.href = "<?php echo e(route('petitions.show', $petition->id)); ?>";
-        })
     </script>
 <?php $__env->stopSection(); ?>
 

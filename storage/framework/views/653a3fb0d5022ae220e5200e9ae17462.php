@@ -105,7 +105,7 @@
                         <?php if(Auth::guest()): ?>
                             <div class="d-grid mb-3">
                                 <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                                    <a href="<?php echo e(route('login')); ?>">Firmar la petición</a>
+                                    <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Firmar la petición</a>
                                 </button>
                             </div>
                         <?php else: ?>
@@ -133,8 +133,8 @@
             </div>
             <?php if(Auth::guest()): ?>
                 <div class="d-grid mb-3">
-                    <button onclick="location.href=<?php echo e(route('login')); ?>" class="btn btn-yellow rounded-2 py-2 fw-bold">
-                        Firmar la petición
+                    <button type="submit" class="btn btn-yellow rounded-2 py-2 fw-bold">
+                        <a class="btn-enlaces" href="<?php echo e(route('login')); ?>">Firmar la petición</a>
                     </button>
                 </div>
             <?php else: ?>
