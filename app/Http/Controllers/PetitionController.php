@@ -64,8 +64,7 @@ class PetitionController extends Controller
         }
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
