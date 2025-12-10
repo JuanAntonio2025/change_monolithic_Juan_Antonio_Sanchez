@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zfPkKr6u4LoHZwW2',
+            '_route' => 'generated::3HoH117xnQNRV5br',
           ),
           1 => NULL,
           2 => 
@@ -235,13 +235,69 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/petitions/index' => 
+      '/admin/petitions' => 
       array (
         0 => 
         array (
           0 => 
           array (
             '_route' => 'admin.petitions.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/petitions/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/petitions/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.create',
           ),
           1 => NULL,
           2 => 
@@ -318,7 +374,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::sf4xuXarqZbN50rW',
+            '_route' => 'generated::xYSVa4KiMTuqjPzj',
           ),
           1 => NULL,
           2 => 
@@ -354,7 +410,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FDVhgHqymXCP3abW',
+            '_route' => 'generated::Yh75LsjLIUhtPZcT',
           ),
           1 => NULL,
           2 => 
@@ -484,7 +540,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IQh1fdqyOXPT5ePG',
+            '_route' => 'generated::Dq5h5wLJDyF5dkc9',
           ),
           1 => NULL,
           2 => 
@@ -538,7 +594,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/reset\\-password/([^/]++)(*:74)|/verify\\-email/([^/]++)/([^/]++)(*:113)|/storage/(.*)(*:134))/?$}sDu',
+      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/admin/petitions/(?|edit/([^/]++)(*:82)|([^/]++)(?|(*:100))|estado/([^/]++)(*:124))|/reset\\-password/([^/]++)(*:158)|/verify\\-email/([^/]++)/([^/]++)(*:198)|/storage/(.*)(*:219))/?$}sDu',
     ),
     3 => 
     array (
@@ -587,7 +643,93 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      74 => 
+      82 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      100 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.delete',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      124 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.estado',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      158 => 
       array (
         0 => 
         array (
@@ -610,7 +752,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      113 => 
+      198 => 
       array (
         0 => 
         array (
@@ -634,7 +776,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      134 => 
+      219 => 
       array (
         0 => 
         array (
@@ -672,7 +814,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::zfPkKr6u4LoHZwW2' => 
+    'generated::3HoH117xnQNRV5br' => 
     array (
       'methods' => 
       array (
@@ -701,7 +843,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000002de0000000000000000";}}',
-        'as' => 'generated::zfPkKr6u4LoHZwW2',
+        'as' => 'generated::3HoH117xnQNRV5br',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1214,7 +1356,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/petitions/index',
+      'uri' => 'admin/petitions',
       'action' => 
       array (
         'middleware' => 
@@ -1225,12 +1367,281 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@index',
         'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@index',
+        'as' => 'admin.petitions.index',
         'namespace' => NULL,
-        'prefix' => '',
+        'prefix' => '/admin/petitions',
         'where' => 
         array (
         ),
-        'as' => 'admin.petitions.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/petitions/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@show',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@show',
+        'as' => 'admin.petitions.show',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/petitions/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@create',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@create',
+        'as' => 'admin.petitions.create',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/petitions',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@store',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@store',
+        'as' => 'admin.petitions.store',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/petitions/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@edit',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@edit',
+        'as' => 'admin.petitions.edit',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'admin/petitions/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@update',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@update',
+        'as' => 'admin.petitions.update',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/petitions/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
+        'as' => 'admin.petitions.delete',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.estado' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'admin/petitions/estado/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@cambiarEstado',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@cambiarEstado',
+        'as' => 'admin.petitions.estado',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
@@ -1362,7 +1773,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::sf4xuXarqZbN50rW' => 
+    'generated::xYSVa4KiMTuqjPzj' => 
     array (
       'methods' => 
       array (
@@ -1383,7 +1794,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::sf4xuXarqZbN50rW',
+        'as' => 'generated::xYSVa4KiMTuqjPzj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1437,7 +1848,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FDVhgHqymXCP3abW' => 
+    'generated::Yh75LsjLIUhtPZcT' => 
     array (
       'methods' => 
       array (
@@ -1458,7 +1869,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::FDVhgHqymXCP3abW',
+        'as' => 'generated::Yh75LsjLIUhtPZcT',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1778,7 +2189,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::IQh1fdqyOXPT5ePG' => 
+    'generated::Dq5h5wLJDyF5dkc9' => 
     array (
       'methods' => 
       array (
@@ -1799,7 +2210,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::IQh1fdqyOXPT5ePG',
+        'as' => 'generated::Dq5h5wLJDyF5dkc9',
       ),
       'fallback' => false,
       'defaults' => 

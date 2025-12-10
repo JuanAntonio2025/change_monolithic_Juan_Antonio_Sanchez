@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\AdminPetitionsController;
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'home'])->name('home');
 
@@ -31,16 +32,36 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin', [\App\Http\Controllers\PageController::class, 'adminHome'])->name('admin.home');
 });
 
-Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminPetitionsController::class)->group(function () {
-    Route::get('admin/petitions/index', 'index')->name('admin.petitions.index');
-    //Route::get('admin/peticiones/{id}', 'show')->name('adminpeticiones.show');
-    //Route::get('admin/peticion/add', 'create')->name('adminpeticiones.create');
-    //Route::get('admin/peticiones/edit/{id}', 'edit')->name('adminpeticiones.edit');
-    //Route::post('admin/peticiones', 'store')->name('adminpeticiones.store');
-    //Route::delete('admin/peticiones/{id}', 'delete')->name('adminpeticiones.delete');
-    //Route::put('admin/peticiones/{id}', 'update')->name('adminpeticiones.update');
-    //Route::put('admin/peticiones/estado/{id}', 'cambiarEstado')->name('adminpeticiones.estado');
-});
+Route::middleware(['auth', AdminMiddleware::class])
+    ->prefix('admin/petitions') // todas las rutas empiezan con /admin/petitions
+    ->name('admin.petitions.')
+    ->controller(AdminPetitionsController::class)
+    ->group(function () {
+
+        // Dashboard/Listado de peticiones
+        Route::get('/', 'index')->name('index');  // <--- aquí el GET
+
+        // Ver todas las peticiones en tabla
+        Route::get('/show', 'show')->name('show');
+
+        // Crear una nueva petición
+        Route::get('/create', 'create')->name('create');
+
+        // Guardar la nueva petición
+        Route::post('/', 'store')->name('store');
+
+        // Editar petición existente
+        Route::get('/edit/{id}', 'edit')->name('edit');
+
+        // Actualizar petición
+        Route::put('/{id}', 'update')->name('update');
+
+        // Eliminar petición
+        Route::delete('/{id}', 'deletePetition')->name('delete');
+
+        // Cambiar estado de petición
+        Route::put('/estado/{id}', 'cambiarEstado')->name('estado');
+    });
 
 Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminUsersController::class)->group(function () {
     Route::get('admin/users/index', 'index')->name('admin.users.index');
