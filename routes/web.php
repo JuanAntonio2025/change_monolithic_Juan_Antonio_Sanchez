@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'home'])->name('home');
 
@@ -26,11 +27,11 @@ Route::controller(\App\Http\Controllers\PetitionController::class)->group(functi
     Route::get('petitions/{id}', 'show')->name('petitions.show');
 });
 
-Route::controller(\App\Http\Controllers\PageController::class)->group(function () {
-    Route::get('admin', 'adminHome')->name('admin.home');
+Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+    Route::get('/admin', [\App\Http\Controllers\PageController::class, 'adminHome'])->name('admin.home');
 });
 
-Route::controller(\App\Http\Controllers\AdminPetitionsController::class)->group(function () {
+Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminPetitionsController::class)->group(function () {
     Route::get('admin/petitions/index', 'index')->name('admin.petitions.index');
     //Route::get('admin/peticiones/{id}', 'show')->name('adminpeticiones.show');
     //Route::get('admin/peticion/add', 'create')->name('adminpeticiones.create');
@@ -41,11 +42,11 @@ Route::controller(\App\Http\Controllers\AdminPetitionsController::class)->group(
     //Route::put('admin/peticiones/estado/{id}', 'cambiarEstado')->name('adminpeticiones.estado');
 });
 
-Route::controller(\App\Http\Controllers\AdminUsersController::class)->group(function () {
+Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminUsersController::class)->group(function () {
     Route::get('admin/users/index', 'index')->name('admin.users.index');
 });
 
-Route::controller(\App\Http\Controllers\AdminCategoriesController::class)->group(function () {
+Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminCategoriesController::class)->group(function () {
     Route::get('admin/categories/index', 'index')->name('admin.categories.index');
 });
 
