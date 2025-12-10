@@ -10,4 +10,8 @@ class PageController extends Controller
     {
         return view('pages.home');
     }
+
+    public function adminHome() {
+        return view('admin.home');
+    }
 }

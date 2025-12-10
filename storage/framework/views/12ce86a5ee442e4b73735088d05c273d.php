@@ -1,13 +1,13 @@
-@php
+<?php
     use Illuminate\Support\Facades\Auth;
-@endphp
+?>
 
     <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - Change.org Clone</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
@@ -60,19 +60,19 @@
     <ul class="nav nav-pills flex-column mb-auto">
 
         <li class="nav-item">
-            <a href="{{ route('admin.petitions.index') }}" class="nav-link {{ request()->is('admin/petitions*') ? 'active' : '' }}">
+            <a href="<?php echo e(route('admin.petitions.index')); ?>" class="nav-link <?php echo e(request()->is('admin/petitions*') ? 'active' : ''); ?>">
                 <i class="bi bi-file-text me-2"></i> Peticiones
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}">
+            <a href="<?php echo e(route('admin.users.index')); ?>" class="nav-link <?php echo e(request()->is('admin/users*') ? 'active' : ''); ?>">
                 <i class="bi bi-people-fill me-2"></i> Usuarios
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{ route('admin.categories.index') }}" class="nav-link {{ request()->is('admin/categories*') ? 'active' : '' }}">
+            <a href="<?php echo e(route('admin.categories.index')); ?>" class="nav-link <?php echo e(request()->is('admin/categories*') ? 'active' : ''); ?>">
                 <i class="bi bi-tags-fill me-2"></i> Categorías
             </a>
         </li>
@@ -81,7 +81,7 @@
 
 <div class="main-content">
     <div class="container-fluid">
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </div>
 </div>
 
@@ -89,3 +89,4 @@
 
 </body>
 </html>
+<?php /**PATH C:\Users\Alumno\Desktop\Repositorios\change_monolithic_Juan_Sanchez\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
