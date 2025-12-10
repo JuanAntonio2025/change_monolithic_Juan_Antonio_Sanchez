@@ -13,13 +13,13 @@
     <style>
         .sidebar {
             width: 250px;
-            height: 100vh;
+            min-height: 100vh;
             position: fixed;
-            top: 0;
+            top: 56px;
             left: 0;
-            background-color: #dc3545; /* Rojo de Change.org / Bootstrap Danger */
+            background-color: #dc3545;
             color: white;
-            padding-top: 56px; /* Altura del Navbar fijo */
+            padding-top: 20px;
         }
         .main-content {
             margin-left: 250px;
@@ -38,7 +38,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand ms-2" href="<?php echo e(route('admin.home')); ?>">Change.org Admin</a>
         <ul class="navbar-nav ms-auto">
@@ -59,14 +59,8 @@
     </div>
 </nav>
 
-<div class="sidebar d-flex flex-column p-0">
+<div class="sidebar d-flex flex-column pt-0">
     <ul class="nav nav-pills flex-column mb-auto">
-
-        <li class="nav-item">
-            <a href="<?php echo e(route('admin.home')); ?>" class="nav-link <?php echo e(request()->is('admin') ? 'active' : ''); ?>">
-                <i class="bi bi-house me-2"></i>
-            </a>
-        </li>
 
         <li class="nav-item">
             <a href="<?php echo e(route('admin.home')); ?>" class="nav-link <?php echo e(request()->is('admin') ? 'active' : ''); ?>">
@@ -94,14 +88,17 @@
     </ul>
 </div>
 
-<div class="main-content">
+<div class="main-content pt-5">
     <div class="container-fluid">
         <?php echo $__env->yieldContent('content'); ?>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+    document.querySelector('.main-content').style.paddingTop = navbarHeight + 'px';
+</script>
 </body>
 </html>
 <?php /**PATH C:\Users\Alumno\Desktop\Repositorios\change_monolithic_Juan_Sanchez\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
