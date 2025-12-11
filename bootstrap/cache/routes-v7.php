@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3HoH117xnQNRV5br',
+            '_route' => 'generated::bIUtL3kXJbdOjbFX',
           ),
           1 => NULL,
           2 => 
@@ -374,7 +374,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xYSVa4KiMTuqjPzj',
+            '_route' => 'generated::7AeoP9rxKtLACjI1',
           ),
           1 => NULL,
           2 => 
@@ -410,7 +410,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Yh75LsjLIUhtPZcT',
+            '_route' => 'generated::SkIhCaUzmWoVaEKZ',
           ),
           1 => NULL,
           2 => 
@@ -540,7 +540,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Dq5h5wLJDyF5dkc9',
+            '_route' => 'generated::IILcZCKcmW03O6LU',
           ),
           1 => NULL,
           2 => 
@@ -594,7 +594,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/admin/petitions/(?|edit/([^/]++)(*:82)|([^/]++)(?|(*:100))|estado/([^/]++)(*:124))|/reset\\-password/([^/]++)(*:158)|/verify\\-email/([^/]++)/([^/]++)(*:198)|/storage/(.*)(*:219))/?$}sDu',
+      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/admin/petitions/(?|edit/([^/]++)(*:82)|([^/]++)(*:97)|image/([0-9]+)(*:118)|([0-9]+)(*:134)|estado/([^/]++)(*:157))|/reset\\-password/([^/]++)(*:191)|/verify\\-email/([^/]++)/([^/]++)(*:231)|/storage/(.*)(*:252))/?$}sDu',
     ),
     3 => 
     array (
@@ -666,7 +666,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      100 => 
+      97 => 
       array (
         0 => 
         array (
@@ -687,11 +687,36 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+      ),
+      118 => 
+      array (
+        0 => 
         array (
           0 => 
           array (
             '_route' => 'admin.petitions.delete',
+          ),
+          1 => 
+          array (
+            0 => 'file_id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      134 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.petitions.deletePetition',
           ),
           1 => 
           array (
@@ -707,7 +732,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      124 => 
+      157 => 
       array (
         0 => 
         array (
@@ -729,7 +754,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      158 => 
+      191 => 
       array (
         0 => 
         array (
@@ -752,7 +777,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      198 => 
+      231 => 
       array (
         0 => 
         array (
@@ -776,7 +801,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      219 => 
+      252 => 
       array (
         0 => 
         array (
@@ -814,7 +839,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::3HoH117xnQNRV5br' => 
+    'generated::bIUtL3kXJbdOjbFX' => 
     array (
       'methods' => 
       array (
@@ -843,7 +868,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000002de0000000000000000";}}',
-        'as' => 'generated::3HoH117xnQNRV5br',
+        'as' => 'generated::bIUtL3kXJbdOjbFX',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1587,7 +1612,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'DELETE',
       ),
-      'uri' => 'admin/petitions/{id}',
+      'uri' => 'admin/petitions/image/{file_id}',
       'action' => 
       array (
         'middleware' => 
@@ -1596,8 +1621,8 @@ app('router')->setCompiledRoutes(
           1 => 'auth',
           2 => 'App\\Http\\Middleware\\AdminMiddleware',
         ),
-        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
-        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@delete',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@delete',
         'as' => 'admin.petitions.delete',
         'namespace' => NULL,
         'prefix' => '/admin/petitions',
@@ -1611,6 +1636,46 @@ app('router')->setCompiledRoutes(
       ),
       'wheres' => 
       array (
+        'file_id' => '[0-9]+',
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.petitions.deletePetition' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/petitions/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
+        'controller' => 'App\\Http\\Controllers\\AdminPetitionsController@deletePetition',
+        'as' => 'admin.petitions.deletePetition',
+        'namespace' => NULL,
+        'prefix' => '/admin/petitions',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+        'id' => '[0-9]+',
       ),
       'bindingFields' => 
       array (
@@ -1773,7 +1838,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xYSVa4KiMTuqjPzj' => 
+    'generated::7AeoP9rxKtLACjI1' => 
     array (
       'methods' => 
       array (
@@ -1794,7 +1859,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xYSVa4KiMTuqjPzj',
+        'as' => 'generated::7AeoP9rxKtLACjI1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1848,7 +1913,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Yh75LsjLIUhtPZcT' => 
+    'generated::SkIhCaUzmWoVaEKZ' => 
     array (
       'methods' => 
       array (
@@ -1869,7 +1934,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Yh75LsjLIUhtPZcT',
+        'as' => 'generated::SkIhCaUzmWoVaEKZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2189,7 +2254,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Dq5h5wLJDyF5dkc9' => 
+    'generated::IILcZCKcmW03O6LU' => 
     array (
       'methods' => 
       array (
@@ -2210,7 +2275,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Dq5h5wLJDyF5dkc9',
+        'as' => 'generated::IILcZCKcmW03O6LU',
       ),
       'fallback' => false,
       'defaults' => 

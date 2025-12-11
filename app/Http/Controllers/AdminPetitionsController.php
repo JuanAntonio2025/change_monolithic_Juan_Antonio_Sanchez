@@ -54,7 +54,7 @@ class AdminPetitionsController extends Controller
             }
         }
 
-        return redirect()->route('admin.petitions.index')->with('success', '¡Petición creada con éxito!');
+        return redirect()->route('admin.petitions.show')->with('success', '¡Petición creada con éxito!');
     }
 
     public function fileUpload($file, $petition_id) {
@@ -90,11 +90,11 @@ class AdminPetitionsController extends Controller
             'title' => 'required|max:255',
             'description' => 'required',
             'addressee' => 'required|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'status' => 'required|in:pending,accepted',
             'signatories' => 'nullable|integer|min:0',
+            'status' => 'required|in:pending,accepted',
             'user_id' => 'required|exists:users,id',
-            'images.*' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Actualizar datos de la petición
@@ -102,10 +102,10 @@ class AdminPetitionsController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'addressee' => $request->addressee,
-            'category_id' => $request->category_id,
-            'status' => $request->status,
             'signatories' => $request->signatories ?? $petition->signatories,
+            'status' => $request->status,
             'user_id' => $request->user_id,
+            'category_id' => $request->category_id,
         ]);
 
         // Subir nuevas imágenes
@@ -115,7 +115,7 @@ class AdminPetitionsController extends Controller
             }
         }
 
-        return redirect()->route('admin.petitions.index')->with('success', '¡Petición actualizada con éxito!');
+        return redirect()->route('admin.petitions.show')->with('success', '¡Petición actualizada con éxito!');
     }
 
     // Eliminar imagen individual
@@ -130,8 +130,6 @@ class AdminPetitionsController extends Controller
 
         // Borrar registro en DB
         $file->delete();
-
-        return redirect()->back()->with('success', 'Imagen eliminada correctamente.');
     }
 
     public function deletePetition($id) {
@@ -148,7 +146,5 @@ class AdminPetitionsController extends Controller
 
         // Borrar la petición
         $petition->delete();
-
-        return redirect()->route('admin.petitions.index')->with('success', 'Petición eliminada correctamente.');
     }
 }

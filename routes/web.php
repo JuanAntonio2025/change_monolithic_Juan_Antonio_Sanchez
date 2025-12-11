@@ -56,8 +56,11 @@ Route::middleware(['auth', AdminMiddleware::class])
         // Actualizar petición
         Route::put('/{id}', 'update')->name('update');
 
+        //Eliminar imagen individual
+        Route::delete('/delete/{file_id}', 'delete')->where('file_id', '[0-9]+')->name('delete');
+
         // Eliminar petición
-        Route::delete('/{id}', 'deletePetition')->name('delete');
+        Route::delete('/{id}', 'deletePetition')->where('id', '[0-9]+')->name('deletePetition');
 
         // Cambiar estado de petición
         Route::put('/estado/{id}', 'cambiarEstado')->name('estado');
