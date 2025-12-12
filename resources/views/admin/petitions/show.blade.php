@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <h1 class="mb-4">Listado de Peticiones</h1>
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
             <tr>
                 <th>Título</th>
                 <th>Categoría</th>

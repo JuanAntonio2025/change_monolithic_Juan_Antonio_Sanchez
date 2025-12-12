@@ -66,12 +66,47 @@ Route::middleware(['auth', AdminMiddleware::class])
         Route::put('/estado/{id}', 'cambiarEstado')->name('estado');
     });
 
-Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminUsersController::class)->group(function () {
-    Route::get('admin/users/index', 'index')->name('admin.users.index');
-});
+Route::middleware(['auth', AdminMiddleware::class])
+    ->prefix('admin/users')
+    ->name('admin.users.')
+    ->controller(\App\Http\Controllers\AdminUsersController::class)
+    ->group(function () {
 
-Route::middleware(['auth', AdminMiddleware::class])->controller(\App\Http\Controllers\AdminCategoriesController::class)->group(function () {
-    Route::get('admin/categories/index', 'index')->name('admin.categories.index');
-});
+        // Vista principal
+        Route::get('/', 'index')->name('index');
+
+        // Mostrar todos los usuarios (equivalente a "show" de categorías/peticiones)
+        Route::get('/show', 'show')->name('show');
+
+        // Crear
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+
+        // Editar
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+
+        // Eliminar
+        Route::delete('/{id}', 'destroy')->name('delete');
+    });
+
+Route::middleware(['auth', AdminMiddleware::class])
+    ->prefix('admin/categories')
+    ->name('admin.categories.')
+    ->controller(\App\Http\Controllers\AdminCategoriesController::class)
+    ->group(function () {
+
+        Route::get('/', 'index')->name('index');
+        Route::get('/show', 'show')->name('show');
+
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::put('/{id}', 'update')->name('update');
+
+        Route::delete('/{id}', 'deleteCategory')->name('delete');
+    });
+
 
 require __DIR__.'/auth.php';

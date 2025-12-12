@@ -13,7 +13,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bIUtL3kXJbdOjbFX',
+            '_route' => 'generated::Zkgya6CMfqgiwuPJ',
           ),
           1 => NULL,
           2 => 
@@ -311,7 +311,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/users/index' => 
+      '/admin/users' => 
       array (
         0 => 
         array (
@@ -330,14 +330,126 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
       ),
-      '/admin/categories/index' => 
+      '/admin/users/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/users/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/categories' => 
       array (
         0 => 
         array (
           0 => 
           array (
             '_route' => 'admin.categories.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/categories/show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/categories/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.create',
           ),
           1 => NULL,
           2 => 
@@ -374,7 +486,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::7AeoP9rxKtLACjI1',
+            '_route' => 'generated::FJrgWpKpoVdcpp09',
           ),
           1 => NULL,
           2 => 
@@ -410,7 +522,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SkIhCaUzmWoVaEKZ',
+            '_route' => 'generated::UfvGYGezYkYWW0Gc',
           ),
           1 => NULL,
           2 => 
@@ -540,7 +652,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IILcZCKcmW03O6LU',
+            '_route' => 'generated::JaaGRnhQJgaQ4dmF',
           ),
           1 => NULL,
           2 => 
@@ -594,7 +706,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/admin/petitions/(?|edit/([^/]++)(*:82)|([^/]++)(*:97)|image/([0-9]+)(*:118)|([0-9]+)(*:134)|estado/([^/]++)(*:157))|/reset\\-password/([^/]++)(*:191)|/verify\\-email/([^/]++)/([^/]++)(*:231)|/storage/(.*)(*:252))/?$}sDu',
+      0 => '{^(?|/petitions/([^/]++)(?|(*:29)|/sign(*:41))|/admin/(?|petitions/(?|edit/([^/]++)(*:85)|([^/]++)(*:100)|delete/([0-9]+)(*:123)|([0-9]+)(*:139)|estado/([^/]++)(*:162))|users/(?|edit/([^/]++)(*:193)|([^/]++)(?|(*:212)))|categories/(?|edit/([^/]++)(*:249)|([^/]++)(?|(*:268))))|/reset\\-password/([^/]++)(*:304)|/verify\\-email/([^/]++)/([^/]++)(*:344)|/storage/(.*)(*:365))/?$}sDu',
     ),
     3 => 
     array (
@@ -643,7 +755,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      82 => 
+      85 => 
       array (
         0 => 
         array (
@@ -666,7 +778,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      97 => 
+      100 => 
       array (
         0 => 
         array (
@@ -688,7 +800,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      118 => 
+      123 => 
       array (
         0 => 
         array (
@@ -710,7 +822,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      134 => 
+      139 => 
       array (
         0 => 
         array (
@@ -732,7 +844,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      157 => 
+      162 => 
       array (
         0 => 
         array (
@@ -754,7 +866,135 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      191 => 
+      193 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      212 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.users.delete',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      249 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.edit',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      268 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.categories.delete',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      304 => 
       array (
         0 => 
         array (
@@ -777,7 +1017,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      231 => 
+      344 => 
       array (
         0 => 
         array (
@@ -801,7 +1041,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      252 => 
+      365 => 
       array (
         0 => 
         array (
@@ -839,7 +1079,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::bIUtL3kXJbdOjbFX' => 
+    'generated::Zkgya6CMfqgiwuPJ' => 
     array (
       'methods' => 
       array (
@@ -868,7 +1108,7 @@ app('router')->setCompiledRoutes(
                         \'exception\' => $exception,
                     ]), status: $exception ? 500 : 200);
                 }";s:5:"scope";s:54:"Illuminate\\Foundation\\Configuration\\ApplicationBuilder";s:4:"this";N;s:4:"self";s:32:"00000000000002de0000000000000000";}}',
-        'as' => 'generated::bIUtL3kXJbdOjbFX',
+        'as' => 'generated::Zkgya6CMfqgiwuPJ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1612,7 +1852,7 @@ app('router')->setCompiledRoutes(
       array (
         0 => 'DELETE',
       ),
-      'uri' => 'admin/petitions/image/{file_id}',
+      'uri' => 'admin/petitions/delete/{file_id}',
       'action' => 
       array (
         'middleware' => 
@@ -1729,7 +1969,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/users/index',
+      'uri' => 'admin/users',
       'action' => 
       array (
         'middleware' => 
@@ -1740,12 +1980,243 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AdminUsersController@index',
         'controller' => 'App\\Http\\Controllers\\AdminUsersController@index',
+        'as' => 'admin.users.index',
         'namespace' => NULL,
-        'prefix' => '',
+        'prefix' => '/admin/users',
         'where' => 
         array (
         ),
-        'as' => 'admin.users.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/users/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@show',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@show',
+        'as' => 'admin.users.show',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/users/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@create',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@create',
+        'as' => 'admin.users.create',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/users',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@store',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@store',
+        'as' => 'admin.users.store',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/users/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@edit',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@edit',
+        'as' => 'admin.users.edit',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'admin/users/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@update',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@update',
+        'as' => 'admin.users.update',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.users.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/users/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminUsersController@destroy',
+        'controller' => 'App\\Http\\Controllers\\AdminUsersController@destroy',
+        'as' => 'admin.users.delete',
+        'namespace' => NULL,
+        'prefix' => '/admin/users',
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
@@ -1768,7 +2239,7 @@ app('router')->setCompiledRoutes(
         0 => 'GET',
         1 => 'HEAD',
       ),
-      'uri' => 'admin/categories/index',
+      'uri' => 'admin/categories',
       'action' => 
       array (
         'middleware' => 
@@ -1779,12 +2250,243 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@index',
         'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@index',
+        'as' => 'admin.categories.index',
         'namespace' => NULL,
-        'prefix' => '',
+        'prefix' => '/admin/categories',
         'where' => 
         array (
         ),
-        'as' => 'admin.categories.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/categories/show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@show',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@show',
+        'as' => 'admin.categories.show',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/categories/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@create',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@create',
+        'as' => 'admin.categories.create',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/categories',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@store',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@store',
+        'as' => 'admin.categories.store',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/categories/edit/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@edit',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@edit',
+        'as' => 'admin.categories.edit',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+      ),
+      'uri' => 'admin/categories/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@update',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@update',
+        'as' => 'admin.categories.update',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.categories.delete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/categories/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+          2 => 'App\\Http\\Middleware\\AdminMiddleware',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminCategoriesController@deleteCategory',
+        'controller' => 'App\\Http\\Controllers\\AdminCategoriesController@deleteCategory',
+        'as' => 'admin.categories.delete',
+        'namespace' => NULL,
+        'prefix' => '/admin/categories',
+        'where' => 
+        array (
+        ),
       ),
       'fallback' => false,
       'defaults' => 
@@ -1838,7 +2540,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::7AeoP9rxKtLACjI1' => 
+    'generated::FJrgWpKpoVdcpp09' => 
     array (
       'methods' => 
       array (
@@ -1859,7 +2561,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::7AeoP9rxKtLACjI1',
+        'as' => 'generated::FJrgWpKpoVdcpp09',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1913,7 +2615,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SkIhCaUzmWoVaEKZ' => 
+    'generated::UfvGYGezYkYWW0Gc' => 
     array (
       'methods' => 
       array (
@@ -1934,7 +2636,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SkIhCaUzmWoVaEKZ',
+        'as' => 'generated::UfvGYGezYkYWW0Gc',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2254,7 +2956,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::IILcZCKcmW03O6LU' => 
+    'generated::JaaGRnhQJgaQ4dmF' => 
     array (
       'methods' => 
       array (
@@ -2275,7 +2977,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::IILcZCKcmW03O6LU',
+        'as' => 'generated::JaaGRnhQJgaQ4dmF',
       ),
       'fallback' => false,
       'defaults' => 

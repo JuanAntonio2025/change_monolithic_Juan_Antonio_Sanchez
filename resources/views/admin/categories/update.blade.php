@@ -2,10 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Crear Nueva Categoría</h1>
+        <h1 class="mb-4">Editar Categoría</h1>
 
-        <form action="{{ route('admin.categories.store') }}" method="POST">
+        <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
             @csrf
+            @method('PUT')
 
             <!-- Nombre -->
             <div class="mb-3">
@@ -15,11 +16,11 @@
                     class="form-control"
                     id="name"
                     name="name"
-                    value="{{ old('name') }}"
+                    value="{{ old('name', $category->name) }}"
                     required>
             </div>
 
-            <button type="submit" class="btn btn-success">Crear Categoría</button>
+            <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
         </form>
     </div>
 @endsection
