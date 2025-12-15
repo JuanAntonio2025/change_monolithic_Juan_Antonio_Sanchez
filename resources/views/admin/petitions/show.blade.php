@@ -29,11 +29,15 @@
                     <td>
                         <a href="{{ route('admin.petitions.edit', $petition->id) }}" class="btn btn-sm btn-primary">Editar</a>
 
-                        <form action="{{ route('admin.petitions.delete', $petition->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta petición?');">
+                        <form action="{{ route('admin.petitions.deletePetition', $petition->id) }}"
+                              method="POST"
+                              style="display:inline-block;"
+                              onsubmit="return confirm('¿Estás seguro?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                         </form>
+
                     </td>
                 </tr>
             @endforeach

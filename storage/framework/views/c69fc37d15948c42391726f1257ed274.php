@@ -27,11 +27,15 @@
                     <td>
                         <a href="<?php echo e(route('admin.petitions.edit', $petition->id)); ?>" class="btn btn-sm btn-primary">Editar</a>
 
-                        <form action="<?php echo e(route('admin.petitions.delete', $petition->id)); ?>" method="POST" style="display:inline-block;" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta petición?');">
+                        <form action="<?php echo e(route('admin.petitions.deletePetition', $petition->id)); ?>"
+                              method="POST"
+                              style="display:inline-block;"
+                              onsubmit="return confirm('¿Estás seguro?');">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('DELETE'); ?>
                             <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                         </form>
+
                     </td>
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

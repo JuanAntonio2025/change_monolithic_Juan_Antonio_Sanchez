@@ -130,6 +130,7 @@ class AdminPetitionsController extends Controller
 
         // Borrar registro en DB
         $file->delete();
+        return back()->with('success', 'Imagen eliminada');
     }
 
     public function deletePetition($id) {
