@@ -18,6 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::post('petitions', [\App\Http\Controllers\PetitionController::class, 'store'])->name('petitions.store');
     Route::get('petitions/{id}', [\App\Http\Controllers\PetitionController::class, 'show'])->name('petitions.show');
     Route::post('petitions/{id}/sign', [\App\Http\Controllers\PetitionController::class, 'firmar'])->name('petitions.sign');
+    Route::get('petitions/{petition}/edit', [\App\Http\Controllers\PetitionController::class, 'edit'])->name('petitions.edit');
+    Route::put('petitions/{petition}', [\App\Http\Controllers\PetitionController::class, 'update'])->name('petitions.update');
+    Route::delete('petitions/{petition}', [\App\Http\Controllers\PetitionController::class, 'delete'])->name('petitions.delete');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

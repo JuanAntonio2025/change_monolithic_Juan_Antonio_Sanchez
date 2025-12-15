@@ -139,4 +139,4 @@
 </body>
 </html>
 
-<?php /**PATH C:\Users\Alumno\Desktop\Repositorios\change_monolithic_Juan_Sanchez\resources\views/layouts/public.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/layouts/public.blade.php ENDPATH**/ ?>

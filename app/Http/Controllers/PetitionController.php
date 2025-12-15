@@ -129,5 +129,64 @@ class PetitionController extends Controller
         }
     }
 
+    public function edit(Petition $petition)
+    {
+        $this->authorize('update', $petition);
+        $categories = Category::all();
+        return view('petitions.edit', compact('petition', 'categories'));
+    }
 
+    public function update(Request $request, Petition $petition)
+    {
+        $this->authorize('update', $petition);
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'addressee' => 'required|max:255',
+            'category_id' => 'required|exists:categories,id',
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $petition->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'addressee' => $request->addressee,
+            'category_id' => $request->category_id,
+        ]);
+
+        // Subir nuevas imágenes
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $this->fileUpload($file, $petition->id);
+            }
+        }
+
+        return redirect()
+            ->route('petitions.show', $petition->id)
+            ->with('success', 'Petición actualizada correctamente');
+    }
+
+    public function delete(Petition $petition)
+    {
+        $this->authorize('delete', $petition);
+
+        if ($petition->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        foreach ($petition->files as $file) {
+            $path = public_path($file->file_path);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+            $file->delete();
+        }
+
+        $petition->delete();
+
+        return redirect()
+            ->route('petitions.mine')
+            ->with('success', 'Petición eliminada correctamente');
+    }
 }

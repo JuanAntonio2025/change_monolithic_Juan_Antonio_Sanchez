@@ -10,10 +10,9 @@ class PetitionPolicy
 {
     public function before(User $user, string $ability)
     {
-        if( $user->role_id == 1){
+        if( $user->role_id === 1){
             return true;
         }
-        return false;
     }
 
 
@@ -46,11 +45,7 @@ class PetitionPolicy
      */
     public function update(User $user, Petition $petition): bool
     {
-        if($user->role_id == 1 && $petition->user_id == $user->id){
-            return true;
-        }
-        return false;
-
+        return $petition->user_id === $user->id;
     }
 
     /**
@@ -58,10 +53,7 @@ class PetitionPolicy
      */
     public function delete(User $user, Petition $petition): bool
     {
-        if($user->role_id == 1 && $petition->user_id=$user->id){
-            return true;
-        }
-        return false;
+        return $petition->user_id === $user->id;
     }
 
     /**

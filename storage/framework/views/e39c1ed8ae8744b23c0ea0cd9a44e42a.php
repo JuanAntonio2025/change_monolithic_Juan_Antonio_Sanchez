@@ -22,6 +22,22 @@
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="pet-title"><?php echo e($petition->title); ?></h1>
+                <div class="d-flex gap-2 mb-3">
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('update', $petition)): ?>
+                        <a href="<?php echo e(route('petitions.edit', $petition)); ?>" class="btn btn-warning">
+                            Editar
+                        </a>
+                    <?php endif; ?>
+
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete', $petition)): ?>
+                        <form method="POST" action="<?php echo e(route('petitions.delete', $petition)); ?>">
+                            <?php echo csrf_field(); ?>
+                            <?php echo method_field('DELETE'); ?>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
+
                 <div class="petition-hero-image-container mb-4">
                     <?php
                         $firstFile = $petition->files->first();
@@ -152,4 +168,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\Alumno\Desktop\Repositorios\change_monolithic_Juan_Sanchez\resources\views/petitions/show.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.public', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\Users\dioat\Desktop\Repositorios\change_monolithic_Juan_Antonio_Sanchez\resources\views/petitions/show.blade.php ENDPATH**/ ?>

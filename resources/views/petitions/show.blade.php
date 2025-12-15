@@ -22,6 +22,22 @@
         <div class="row">
             <div class="col-lg-8">
                 <h1 class="pet-title">{{$petition->title}}</h1>
+                <div class="d-flex gap-2 mb-3">
+                    @can('update', $petition)
+                        <a href="{{ route('petitions.edit', $petition) }}" class="btn btn-warning">
+                            Editar
+                        </a>
+                    @endcan
+
+                    @can('delete', $petition)
+                        <form method="POST" action="{{ route('petitions.delete', $petition) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger">Eliminar</button>
+                        </form>
+                    @endcan
+                </div>
+
                 <div class="petition-hero-image-container mb-4">
                     @php
                         $firstFile = $petition->files->first();
