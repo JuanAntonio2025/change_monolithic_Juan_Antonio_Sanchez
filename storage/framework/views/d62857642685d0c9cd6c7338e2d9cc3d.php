@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Crear Nuevo Usuario</h1>
 
         <form method="POST" action="<?php echo e(route('admin.users.store')); ?>">

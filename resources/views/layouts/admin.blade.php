@@ -40,7 +40,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container-fluid">
-        <a class="navbar-brand ms-2" href="{{ route('admin.home') }}">Change.org Admin</a>
+        <a class="navbar-brand fw-bolder text-danger" href="{{ route('admin.home') }}">
+            Change.org
+        </a>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

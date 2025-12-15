@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Listado de Usuarios</h1>
         <div class="col-md-2 m-3">
             <a href="<?php echo e(route('admin.users.create')); ?>" class="text-decoration-none">
