@@ -147,5 +147,6 @@ class AdminPetitionsController extends Controller
 
         // Borrar la petición
         $petition->delete();
+        return back()->with('success', 'Imagen eliminada');
     }
 }
