@@ -148,6 +148,7 @@ class PetitionController extends Controller
             'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+        // Actualizar datos de la petición
         $petition->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -155,16 +156,38 @@ class PetitionController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        // Subir nuevas imágenes
+        // Si hay nuevas imágenes, borrar las anteriores y subir las nuevas
         if ($request->hasFile('images')) {
+            // Borrar imágenes anteriores
+            foreach ($petition->files as $file) {
+                $path = public_path($file->file_path);
+                if (file_exists($path)) {
+                    unlink($path); // Borra archivo físico
+                }
+                $file->delete(); // Borra registro en DB
+            }
+
+            // Subir nuevas imágenes, pasando cada archivo directamente
             foreach ($request->file('images') as $file) {
-                $this->fileUpload($file, $petition->id);
+                $this->fileUploadUpdate($file, $petition->id);
             }
         }
 
         return redirect()
             ->route('petitions.show', $petition->id)
             ->with('success', 'Petición actualizada correctamente');
+    }
+
+    public function fileUploadUpdate(\Illuminate\Http\UploadedFile $file, $petition_id)
+    {
+        $filename = time().'_'.$file->getClientOriginalName();
+        $path = $file->move(public_path('fotos'), $filename);
+
+        \App\Models\File::create([
+            'name' => $filename,
+            'file_path' => 'fotos/' . $filename,
+            'petition_id' => $petition_id
+        ]);
     }
 
     public function delete(Petition $petition)
