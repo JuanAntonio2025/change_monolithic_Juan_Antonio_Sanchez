@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Editar Petición</h1>
 
         {{-- FORMULARIO PRINCIPAL (ACTUALIZAR PETICIÓN) --}}

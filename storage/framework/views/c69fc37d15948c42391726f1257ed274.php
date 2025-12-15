@@ -1,6 +1,13 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Listado de Peticiones</h1>
+        <div class="col-md-2 m-3">
+            <a href="<?php echo e(route('admin.petitions.create')); ?>" class="text-decoration-none">
+                <div class="card text-white bg-success h-100">
+                    <h5 class="card-title text-center p-2">Crear Petición</h5>
+                </div>
+            </a>
+        </div>
         <table class="table table-striped table-bordered">
             <thead class="table-dark">
             <tr>

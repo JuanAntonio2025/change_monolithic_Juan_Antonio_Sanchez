@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Crear Nueva Petición</h1>
 
         <form action="<?php echo e(route('admin.petitions.store')); ?>" method="POST" enctype="multipart/form-data">

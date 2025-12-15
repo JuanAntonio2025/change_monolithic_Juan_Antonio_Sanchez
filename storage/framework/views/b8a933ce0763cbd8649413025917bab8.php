@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <div class="container">
+    <div class="container mt-5">
         <h1 class="mb-4">Editar Petición</h1>
 
         

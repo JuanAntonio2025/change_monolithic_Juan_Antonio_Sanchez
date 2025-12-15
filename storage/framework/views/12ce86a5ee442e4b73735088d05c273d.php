@@ -38,7 +38,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container-fluid">
         <a class="navbar-brand ms-2" href="<?php echo e(route('admin.home')); ?>">Change.org Admin</a>
         <ul class="navbar-nav ms-auto">
