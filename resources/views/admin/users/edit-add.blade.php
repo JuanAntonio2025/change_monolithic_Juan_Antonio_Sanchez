@@ -29,6 +29,7 @@
                 </select>
             </div>
             <button class="btn btn-success">Crear Usuario</button>
+            <a href="{{ route('admin.users.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
     </div>
 @endsection

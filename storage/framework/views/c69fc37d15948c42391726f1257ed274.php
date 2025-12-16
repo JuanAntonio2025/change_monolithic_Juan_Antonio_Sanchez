@@ -32,6 +32,8 @@
                     <td><?php echo e($petition->status); ?></td>
                     <td><?php echo e($petition->created_at->format('d/m/Y')); ?></td>
                     <td>
+                        <a href="<?php echo e(route('admin.petitions.details', $petition->id)); ?>" class="btn btn-sm btn-info text-white">Detalles</a>
+
                         <a href="<?php echo e(route('admin.petitions.edit', $petition->id)); ?>" class="btn btn-sm btn-primary">Editar</a>
 
                         <form action="<?php echo e(route('admin.petitions.deletePetition', $petition->id)); ?>"
@@ -42,7 +44,6 @@
                             <?php echo method_field('DELETE'); ?>
                             <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
                         </form>
-
                     </td>
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -16,6 +16,7 @@
                     required>
             </div>
             <button type="submit" class="btn btn-success">Crear Categoría</button>
+            <a href="{{ route('admin.categories.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
     </div>
 @endsection

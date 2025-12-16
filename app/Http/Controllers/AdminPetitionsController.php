@@ -19,6 +19,11 @@ class AdminPetitionsController extends Controller
         return view('admin.petitions.show', compact('petitions'));
     }
 
+    public function details($id) {
+        $petition = Petition::findOrFail($id);
+        return view('admin.petitions.details', compact('petition'));
+    }
+
     public function create() {
         $users = User::all();
         $categories = Category::all();

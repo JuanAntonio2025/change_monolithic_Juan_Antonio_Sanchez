@@ -1,15 +1,12 @@
 <?php $__env->startSection('content'); ?>
     <div class="container mt-5">
         <h1 class="mb-4">Editar Petición</h1>
-
-        
         <form action="<?php echo e(route('admin.petitions.update', $petition->id)); ?>"
               method="POST"
               enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
             <?php echo method_field('PUT'); ?>
 
-            <!-- Título -->
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
                 <input type="text"
@@ -20,7 +17,6 @@
                        required>
             </div>
 
-            <!-- Descripción -->
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
                 <textarea class="form-control"
@@ -30,7 +26,6 @@
                           required><?php echo e(old('description', $petition->description)); ?></textarea>
             </div>
 
-            <!-- Destinatario -->
             <div class="mb-3">
                 <label for="addressee" class="form-label">Destinatario</label>
                 <input type="text"
@@ -41,7 +36,6 @@
                        required>
             </div>
 
-            <!-- Firmantes -->
             <div class="mb-3">
                 <label for="signatories" class="form-label">Firmantes</label>
                 <input type="number"
@@ -52,7 +46,6 @@
                        min="0">
             </div>
 
-            <!-- Estado -->
             <div class="mb-3">
                 <label for="status" class="form-label">Estado</label>
                 <select class="form-select"
@@ -68,7 +61,6 @@
                 </select>
             </div>
 
-            <!-- Usuario -->
             <div class="mb-3">
                 <label for="user_id" class="form-label">Usuario</label>
                 <select class="form-select"
@@ -83,7 +75,6 @@
                 </select>
             </div>
 
-            <!-- Categoría -->
             <div class="mb-3">
                 <label for="category_id" class="form-label">Categoría</label>
                 <select class="form-select"
@@ -99,7 +90,6 @@
                 </select>
             </div>
 
-            <!-- Subir nuevas imágenes -->
             <div class="mb-3">
                 <label for="images" class="form-label">Añadir nuevas imágenes</label>
                 <input type="file"
@@ -110,38 +100,36 @@
                 <small class="text-muted">Se almacenarán en <code>public/fotos</code></small>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label">Imágenes actuales</label>
+                <div class="d-flex flex-wrap gap-3">
+                    <?php $__currentLoopData = $petition->files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $file): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="position-relative">
+                            <img src="<?php echo e(asset($file->file_path)); ?>"
+                                 alt="<?php echo e($file->name); ?>"
+                                 width="150"
+                                 class="img-thumbnail">
+
+                            <form action="<?php echo e(route('admin.petitions.delete', $file->id)); ?>"
+                                  method="POST"
+                                  class="position-absolute top-0 end-0"
+                                  onsubmit="return confirm('¿Eliminar esta imagen?');">
+                                <?php echo csrf_field(); ?>
+                                <?php echo method_field('DELETE'); ?>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    &times;
+                                </button>
+                            </form>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary">
                 Actualizar Petición
             </button>
+            <a href="<?php echo e(route('admin.petitions.show')); ?>" class="btn btn-secondary">Volver al Listado</a>
         </form>
-
-        <hr class="my-4">
-
-        
-        <div class="mb-3">
-            <label class="form-label">Imágenes actuales</label>
-            <div class="d-flex flex-wrap gap-3">
-                <?php $__currentLoopData = $petition->files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $file): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="position-relative">
-                        <img src="<?php echo e(asset($file->file_path)); ?>"
-                             alt="<?php echo e($file->name); ?>"
-                             width="150"
-                             class="img-thumbnail">
-
-                        <form action="<?php echo e(route('admin.petitions.delete', $file->id)); ?>"
-                              method="POST"
-                              class="position-absolute top-0 end-0"
-                              onsubmit="return confirm('¿Eliminar esta imagen?');">
-                            <?php echo csrf_field(); ?>
-                            <?php echo method_field('DELETE'); ?>
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                &times;
-                            </button>
-                        </form>
-                    </div>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </div>
-        </div>
     </div>
 <?php $__env->stopSection(); ?>
 

@@ -101,37 +101,36 @@
                 <small class="text-muted">Se almacenarán en <code>public/fotos</code></small>
             </div>
 
+            <div class="mb-3">
+                <label class="form-label">Imágenes actuales</label>
+                <div class="d-flex flex-wrap gap-3">
+                    @foreach($petition->files as $file)
+                        <div class="position-relative">
+                            <img src="{{ asset($file->file_path) }}"
+                                 alt="{{ $file->name }}"
+                                 width="150"
+                                 class="img-thumbnail">
+
+                            <form action="{{ route('admin.petitions.delete', $file->id) }}"
+                                  method="POST"
+                                  class="position-absolute top-0 end-0"
+                                  onsubmit="return confirm('¿Eliminar esta imagen?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    &times;
+                                </button>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
             <button type="submit" class="btn btn-primary">
                 Actualizar Petición
             </button>
+            <a href="{{ route('admin.petitions.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
-
-        <hr class="my-4">
-
-        <div class="mb-3">
-            <label class="form-label">Imágenes actuales</label>
-            <div class="d-flex flex-wrap gap-3">
-                @foreach($petition->files as $file)
-                    <div class="position-relative">
-                        <img src="{{ asset($file->file_path) }}"
-                             alt="{{ $file->name }}"
-                             width="150"
-                             class="img-thumbnail">
-
-                        <form action="{{ route('admin.petitions.delete', $file->id) }}"
-                              method="POST"
-                              class="position-absolute top-0 end-0"
-                              onsubmit="return confirm('¿Eliminar esta imagen?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">
-                                &times;
-                            </button>
-                        </form>
-                    </div>
-                @endforeach
-            </div>
-        </div>
     </div>
 @endsection
 

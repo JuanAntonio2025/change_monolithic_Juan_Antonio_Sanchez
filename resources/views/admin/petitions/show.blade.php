@@ -34,6 +34,8 @@
                     <td>{{ $petition->status }}</td>
                     <td>{{ $petition->created_at->format('d/m/Y') }}</td>
                     <td>
+                        <a href="{{ route('admin.petitions.details', $petition->id) }}" class="btn btn-sm btn-info text-white">Detalles</a>
+
                         <a href="{{ route('admin.petitions.edit', $petition->id) }}" class="btn btn-sm btn-primary">Editar</a>
 
                         <form action="{{ route('admin.petitions.deletePetition', $petition->id) }}"

@@ -76,6 +76,6 @@ class AdminUsersController extends Controller
     {
         User::findOrFail($id)->delete();
 
-        return redirect()->route('admin.users.index')->with('success', 'Usuario eliminado correctamente.');
+        return redirect()->route('admin.users.show')->with('success', 'Usuario eliminado correctamente.');
     }
 }

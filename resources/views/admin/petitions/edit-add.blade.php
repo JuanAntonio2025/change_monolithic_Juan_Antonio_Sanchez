@@ -59,6 +59,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Crear Petición</button>
+            <a href="{{ route('admin.petitions.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
     </div>
 @endsection

@@ -47,6 +47,9 @@ Route::middleware(['auth', AdminMiddleware::class])
         // Ver todas las peticiones en tabla
         Route::get('/show', 'show')->name('show');
 
+        //Ver detalles de una petición
+        Route::get('/details/{id}', 'details')->where('id', '[0-9]+')->name('details');
+
         // Crear una nueva petición
         Route::get('/create', 'create')->name('create');
 

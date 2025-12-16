@@ -30,6 +30,7 @@
                 </select>
             </div>
             <button class="btn btn-primary">Actualizar Usuario</button>
+            <a href="{{ route('admin.users.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
     </div>
 @endsection

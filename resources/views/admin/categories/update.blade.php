@@ -18,6 +18,7 @@
                     required>
             </div>
             <button type="submit" class="btn btn-primary">Actualizar Categoría</button>
+            <a href="{{ route('admin.categories.show') }}" class="btn btn-secondary">Volver al Listado</a>
         </form>
     </div>
 @endsection
