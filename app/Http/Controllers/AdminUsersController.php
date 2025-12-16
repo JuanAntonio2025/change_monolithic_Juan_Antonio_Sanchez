@@ -39,7 +39,7 @@ class AdminUsersController extends Controller
             'role'     => $request->role
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Usuario creado correctamente.');
+        return redirect()->route('admin.users.show')->with('success', 'Usuario creado correctamente.');
     }
 
     public function edit($id)
@@ -69,7 +69,7 @@ class AdminUsersController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado correctamente.');
+        return redirect()->route('admin.users.show')->with('success', 'Usuario actualizado correctamente.');
     }
 
     public function destroy($id)
