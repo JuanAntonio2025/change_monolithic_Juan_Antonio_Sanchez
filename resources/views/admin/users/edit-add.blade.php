@@ -3,7 +3,6 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="mb-4">Crear Nuevo Usuario</h1>
-
         <form method="POST" action="{{ route('admin.users.store') }}">
             @csrf
 
@@ -29,7 +28,6 @@
                     <option value="1" {{ old('role') == 1 ? 'selected' : '' }}>Administrador</option>
                 </select>
             </div>
-
             <button class="btn btn-success">Crear Usuario</button>
         </form>
     </div>

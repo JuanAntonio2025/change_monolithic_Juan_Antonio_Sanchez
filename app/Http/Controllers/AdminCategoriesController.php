@@ -56,11 +56,6 @@ class AdminCategoriesController extends Controller
     public function deleteCategory($id) {
         $category = Category::findOrFail($id);
 
-        // IMPORTANTE:
-        // Si una categoría tiene peticiones asociadas, Laravel dará error
-        // a menos que hayas configurado ON DELETE CASCADE en la FK.
-        // Si quieres, puedo hacerte control automático.
-
         $category->delete();
 
         return redirect()->route('admin.categories.show')

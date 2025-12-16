@@ -3,35 +3,29 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="mb-4">Crear Nueva Petición</h1>
-
         <form action="{{ route('admin.petitions.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <!-- Título -->
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
             </div>
 
-            <!-- Descripción -->
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
                 <textarea class="form-control" id="description" name="description" rows="4" required>{{ old('description') }}</textarea>
             </div>
 
-            <!-- Destinatario (addressee) -->
             <div class="mb-3">
                 <label for="addressee" class="form-label">Destinatario</label>
                 <input type="text" class="form-control" id="addressee" name="addressee" value="{{ old('addressee') }}" required>
             </div>
 
-            <!-- Número de firmantes (signatories) -->
             <div class="mb-3">
                 <label for="signatories" class="form-label">Firmantes</label>
                 <input type="number" class="form-control" id="signatories" name="signatories" value="{{ old('signatories', 0) }}" min="0">
             </div>
 
-            <!-- Estado -->
             <div class="mb-3">
                 <label for="status" class="form-label">Estado</label>
                 <select class="form-select" id="status" name="status" required>
@@ -40,7 +34,6 @@
                 </select>
             </div>
 
-            <!-- Usuario (user_id) -->
             <div class="mb-3">
                 <label for="user_id" class="form-label">Usuario</label>
                 <select class="form-select" id="user_id" name="user_id" required>
@@ -50,7 +43,6 @@
                 </select>
             </div>
 
-            <!-- Categoría (category_id) -->
             <div class="mb-3">
                 <label for="category_id" class="form-label">Categoría</label>
                 <select class="form-select" id="category_id" name="category_id" required>
@@ -60,7 +52,6 @@
                 </select>
             </div>
 
-            <!-- Subir imágenes -->
             <div class="mb-3">
                 <label for="images" class="form-label">Imágenes de la petición</label>
                 <input type="file" class="form-control" id="images" name="images[]" multiple>

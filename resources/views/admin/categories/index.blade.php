@@ -4,8 +4,6 @@
     <div class="container mt-5">
         <h1 class="mb-4">Gestión de Categorías</h1>
         <div class="row g-4">
-
-            <!-- Panel Ver Categorías -->
             <div class="col-md-4">
                 <a href="{{ route('admin.categories.show') }}" class="text-decoration-none">
                     <div class="card text-white bg-danger h-100">
@@ -18,7 +16,6 @@
                 </a>
             </div>
 
-            <!-- Panel Crear Categoría -->
             <div class="col-md-4">
                 <a href="{{ route('admin.categories.create') }}" class="text-decoration-none">
                     <div class="card text-white bg-success h-100">
@@ -30,7 +27,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
     </div>
 @endsection

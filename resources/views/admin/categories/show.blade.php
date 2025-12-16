@@ -29,13 +29,11 @@
                     <td>{{ $category->updated_at->format('d/m/Y') }}</td>
                     <td class="d-flex gap-2">
 
-                        <!-- Editar -->
                         <a href="{{ route('admin.categories.edit', $category->id) }}"
                            class="btn btn-sm btn-primary">
                             Editar
                         </a>
 
-                        <!-- Eliminar -->
                         <form action="{{ route('admin.categories.delete', $category->id) }}"
                               method="POST"
                               onsubmit="return confirm('¿Estás seguro de eliminar esta categoría?');">

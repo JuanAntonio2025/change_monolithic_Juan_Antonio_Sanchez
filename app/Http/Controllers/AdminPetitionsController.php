@@ -61,7 +61,6 @@ class AdminPetitionsController extends Controller
         $destino = public_path('fotos');
         $originalName = $file->getClientOriginalName();
 
-        // Opcional: evitar sobrescribir archivos con el mismo nombre
         $uniqueName = time() . '_' . $originalName;
 
         $file->move($destino, $uniqueName);
@@ -97,7 +96,6 @@ class AdminPetitionsController extends Controller
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Actualizar datos de la petición
         $petition->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -108,7 +106,6 @@ class AdminPetitionsController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        // Subir nuevas imágenes
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $this->fileUpload($file, $petition->id);
@@ -122,13 +119,11 @@ class AdminPetitionsController extends Controller
     public function delete($file_id) {
         $file = File::findOrFail($file_id);
 
-        // Borrar archivo físico
         $filePath = public_path($file->file_path);
         if(file_exists($filePath)) {
             unlink($filePath);
         }
 
-        // Borrar registro en DB
         $file->delete();
         return back()->with('success', 'Imagen eliminada');
     }
@@ -136,7 +131,6 @@ class AdminPetitionsController extends Controller
     public function deletePetition($id) {
         $petition = Petition::findOrFail($id);
 
-        // Borrar todas las imágenes asociadas
         foreach($petition->files as $file) {
             $filePath = public_path($file->file_path);
             if(file_exists($filePath)) {
@@ -145,7 +139,6 @@ class AdminPetitionsController extends Controller
             $file->delete();
         }
 
-        // Borrar la petición
         $petition->delete();
         return back()->with('success', 'Imagen eliminada');
     }

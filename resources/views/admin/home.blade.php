@@ -4,8 +4,6 @@
     <div class="container mt-5">
         <h1 class="mb-4">Panel de Administración</h1>
         <div class="row g-4">
-
-            <!-- Panel Peticiones -->
             <div class="col-md-4">
                 <a href="{{ route('admin.petitions.index') }}" class="text-decoration-none">
                     <div class="card text-white bg-danger h-100">
@@ -18,7 +16,6 @@
                 </a>
             </div>
 
-            <!-- Panel Usuarios -->
             <div class="col-md-4">
                 <a href="{{ route('admin.users.index') }}" class="text-decoration-none">
                     <div class="card text-white bg-primary h-100">
@@ -31,7 +28,6 @@
                 </a>
             </div>
 
-            <!-- Panel Categorías -->
             <div class="col-md-4">
                 <a href="{{ route('admin.categories.index') }}" class="text-decoration-none">
                     <div class="card text-white bg-success h-100">
@@ -43,7 +39,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
     </div>
 @endsection

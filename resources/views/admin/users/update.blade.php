@@ -3,7 +3,6 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="mb-4">Editar Usuario</h1>
-
         <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
             @csrf
             @method('PUT')
@@ -30,7 +29,6 @@
                     <option value="1" {{ $user->role == 1 ? 'selected' : '' }}>Administrador</option>
                 </select>
             </div>
-
             <button class="btn btn-primary">Actualizar Usuario</button>
         </form>
     </div>

@@ -145,10 +145,9 @@ class PetitionController extends Controller
             'description' => 'required',
             'addressee' => 'required|max:255',
             'category_id' => 'required|exists:categories,id',
-            'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'images.*' => 'nullable|image|mimes:jpg,jpeg,png,avif,webp|max:2048',
         ]);
 
-        // Actualizar datos de la petición
         $petition->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -156,18 +155,15 @@ class PetitionController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        // Si hay nuevas imágenes, borrar las anteriores y subir las nuevas
         if ($request->hasFile('images')) {
-            // Borrar imágenes anteriores
             foreach ($petition->files as $file) {
                 $path = public_path($file->file_path);
                 if (file_exists($path)) {
-                    unlink($path); // Borra archivo físico
+                    unlink($path);
                 }
-                $file->delete(); // Borra registro en DB
+                $file->delete();
             }
 
-            // Subir nuevas imágenes, pasando cada archivo directamente
             foreach ($request->file('images') as $file) {
                 $this->fileUploadUpdate($file, $petition->id);
             }
@@ -208,8 +204,6 @@ class PetitionController extends Controller
 
         $petition->delete();
 
-        return redirect()
-            ->route('petitions.mine')
-            ->with('success', 'Petición eliminada correctamente');
+        return redirect()->route('petitions.mine')->with('success', 'Petición eliminada correctamente');
     }
 }

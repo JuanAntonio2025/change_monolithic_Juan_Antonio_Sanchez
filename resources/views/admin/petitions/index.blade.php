@@ -4,8 +4,6 @@
     <div class="container mt-5">
         <h1 class="mb-4">Gestión de Peticiones</h1>
         <div class="row g-4">
-
-            <!-- Panel Ver Peticiones -->
             <div class="col-md-4">
                 <a href="{{ route('admin.petitions.show') }}" class="text-decoration-none">
                     <div class="card text-white bg-danger h-100">
@@ -18,7 +16,6 @@
                 </a>
             </div>
 
-            <!-- Panel Crear Petición -->
             <div class="col-md-4">
                 <a href="{{ route('admin.petitions.create') }}" class="text-decoration-none">
                     <div class="card text-white bg-success h-100">
@@ -30,7 +27,6 @@
                     </div>
                 </a>
             </div>
-
         </div>
     </div>
 @endsection

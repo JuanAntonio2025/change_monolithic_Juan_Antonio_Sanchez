@@ -3,15 +3,12 @@
 @section('content')
     <div class="container mt-5">
         <h1 class="mb-4">Editar Petición</h1>
-
-        {{-- FORMULARIO PRINCIPAL (ACTUALIZAR PETICIÓN) --}}
         <form action="{{ route('admin.petitions.update', $petition->id) }}"
               method="POST"
               enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <!-- Título -->
             <div class="mb-3">
                 <label for="title" class="form-label">Título</label>
                 <input type="text"
@@ -22,7 +19,6 @@
                        required>
             </div>
 
-            <!-- Descripción -->
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
                 <textarea class="form-control"
@@ -32,7 +28,6 @@
                           required>{{ old('description', $petition->description) }}</textarea>
             </div>
 
-            <!-- Destinatario -->
             <div class="mb-3">
                 <label for="addressee" class="form-label">Destinatario</label>
                 <input type="text"
@@ -43,7 +38,6 @@
                        required>
             </div>
 
-            <!-- Firmantes -->
             <div class="mb-3">
                 <label for="signatories" class="form-label">Firmantes</label>
                 <input type="number"
@@ -54,7 +48,6 @@
                        min="0">
             </div>
 
-            <!-- Estado -->
             <div class="mb-3">
                 <label for="status" class="form-label">Estado</label>
                 <select class="form-select"
@@ -70,7 +63,6 @@
                 </select>
             </div>
 
-            <!-- Usuario -->
             <div class="mb-3">
                 <label for="user_id" class="form-label">Usuario</label>
                 <select class="form-select"
@@ -85,7 +77,6 @@
                 </select>
             </div>
 
-            <!-- Categoría -->
             <div class="mb-3">
                 <label for="category_id" class="form-label">Categoría</label>
                 <select class="form-select"
@@ -100,7 +91,6 @@
                 </select>
             </div>
 
-            <!-- Subir nuevas imágenes -->
             <div class="mb-3">
                 <label for="images" class="form-label">Añadir nuevas imágenes</label>
                 <input type="file"
@@ -118,7 +108,6 @@
 
         <hr class="my-4">
 
-        {{-- IMÁGENES EXISTENTES (FORMULARIOS INDEPENDIENTES) --}}
         <div class="mb-3">
             <label class="form-label">Imágenes actuales</label>
             <div class="d-flex flex-wrap gap-3">
