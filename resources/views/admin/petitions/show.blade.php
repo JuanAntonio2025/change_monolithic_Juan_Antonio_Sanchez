@@ -15,7 +15,6 @@
             <tr>
                 <th>Título</th>
                 <th>Categoría</th>
-                <th>Descripción</th>
                 <th>Autor</th>
                 <th>Firmas</th>
                 <th>Estado</th>
@@ -28,7 +27,6 @@
                 <tr>
                     <td>{{ $petition->title }}</td>
                     <td>{{ $petition->category->name }}</td>
-                    <td>{{ $petition->description }}</td>
                     <td>{{ $petition->user->name }}</td>
                     <td>{{ $petition->signatories }}</td>
                     <td>{{ $petition->status }}</td>
@@ -51,6 +49,9 @@
             @endforeach
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $petitions->links() }}
+        </div>
     </div>
 @endsection
 

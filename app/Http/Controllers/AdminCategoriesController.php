@@ -12,7 +12,7 @@ class AdminCategoriesController extends Controller
     }
 
     public function show() {
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view('admin.categories.show', compact('categories'));
     }
 

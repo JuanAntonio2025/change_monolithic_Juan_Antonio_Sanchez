@@ -13,7 +13,6 @@
             <tr>
                 <th>Título</th>
                 <th>Categoría</th>
-                <th>Descripción</th>
                 <th>Autor</th>
                 <th>Firmas</th>
                 <th>Estado</th>
@@ -26,7 +25,6 @@
                 <tr>
                     <td><?php echo e($petition->title); ?></td>
                     <td><?php echo e($petition->category->name); ?></td>
-                    <td><?php echo e($petition->description); ?></td>
                     <td><?php echo e($petition->user->name); ?></td>
                     <td><?php echo e($petition->signatories); ?></td>
                     <td><?php echo e($petition->status); ?></td>
@@ -49,6 +47,10 @@
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
+        <div class="d-flex justify-content-center mt-4">
+            <?php echo e($petitions->links()); ?>
+
+        </div>
     </div>
 <?php $__env->stopSection(); ?>
 

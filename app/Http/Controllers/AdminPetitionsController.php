@@ -14,8 +14,9 @@ class AdminPetitionsController extends Controller
         return view('admin.petitions.index');
     }
 
-    public function show() {
-        $petitions = Petition::all();
+    public function show()
+    {
+        $petitions = Petition::with(['category', 'user'])->orderBy('created_at', 'asc')->paginate(5);
         return view('admin.petitions.show', compact('petitions'));
     }
 

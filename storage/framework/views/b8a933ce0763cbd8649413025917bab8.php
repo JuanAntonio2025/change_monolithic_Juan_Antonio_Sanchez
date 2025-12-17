@@ -1,8 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <div class="container mt-5">
         <h1 class="mb-4">Editar Petición</h1>
-
-        
         <form action="<?php echo e(route('admin.petitions.update', $petition->id)); ?>"
               method="POST"
               enctype="multipart/form-data">
@@ -88,7 +86,6 @@
 
         <hr class="my-4">
 
-        
         <h5>Imágenes actuales</h5>
         <div class="d-flex flex-wrap gap-3">
             <?php $__currentLoopData = $petition->files; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $file): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
