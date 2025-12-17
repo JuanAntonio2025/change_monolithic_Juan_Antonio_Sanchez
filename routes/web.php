@@ -36,13 +36,13 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
 });
 
 Route::middleware(['auth', AdminMiddleware::class])
-    ->prefix('admin/petitions') // todas las rutas empiezan con /admin/petitions
+    ->prefix('admin/petitions')
     ->name('admin.petitions.')
     ->controller(AdminPetitionsController::class)
     ->group(function () {
 
         // Dashboard/Listado de peticiones
-        Route::get('/', 'index')->name('index');  // <--- aquí el GET
+        Route::get('/', 'index')->name('index');
 
         // Ver todas las peticiones en tabla
         Route::get('/show', 'show')->name('show');
