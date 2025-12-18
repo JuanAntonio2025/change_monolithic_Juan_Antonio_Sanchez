@@ -27,7 +27,7 @@
 
         <div class="card mb-4">
             <div class="card-header bg-dark text-white">
-                Imagen Asociada
+                Imágenes Asociadas
             </div>
             <div class="card-body">
                 @if($petition->files->isNotEmpty())

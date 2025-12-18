@@ -53,7 +53,6 @@ class AdminPetitionsController extends Controller
             'category_id' => $request->category_id,
         ]);
 
-        // Subida de imágenes
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $this->fileUpload($file, $petition->id);
@@ -121,7 +120,6 @@ class AdminPetitionsController extends Controller
         return redirect()->route('admin.petitions.show')->with('success', '¡Petición actualizada con éxito!');
     }
 
-    // Eliminar imagen individual
     public function delete($file_id) {
         $file = File::findOrFail($file_id);
 

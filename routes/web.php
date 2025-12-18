@@ -31,6 +31,8 @@ Route::controller(\App\Http\Controllers\PetitionController::class)->group(functi
     Route::get('petitions/{id}', 'show')->name('petitions.show');
 });
 
+
+//Funciones del admin
 Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::get('/admin', [\App\Http\Controllers\PageController::class, 'adminHome'])->name('admin.home');
 });
@@ -40,35 +42,15 @@ Route::middleware(['auth', AdminMiddleware::class])
     ->name('admin.petitions.')
     ->controller(AdminPetitionsController::class)
     ->group(function () {
-
-        // Dashboard/Listado de peticiones
         Route::get('/', 'index')->name('index');
-
-        // Ver todas las peticiones en tabla
         Route::get('/show', 'show')->name('show');
-
-        //Ver detalles de una petición
         Route::get('/details/{id}', 'details')->where('id', '[0-9]+')->name('details');
-
-        // Crear una nueva petición
         Route::get('/create', 'create')->name('create');
-
-        // Guardar la nueva petición
         Route::post('/', 'store')->name('store');
-
-        // Editar petición existente
         Route::get('/edit/{id}', 'edit')->name('edit');
-
-        // Actualizar petición
         Route::put('/actualizar/{id}', 'update')->name('update');
-
-        //Eliminar imagen individual
         Route::delete('/delete/{file_id}', 'delete')->where('file_id', '[0-9]+')->name('delete');
-
-        // Eliminar petición
         Route::delete('/{id}', 'deletePetition')->where('id', '[0-9]+')->name('deletePetition');
-
-        // Cambiar estado de petición
         Route::put('/estado/{id}', 'cambiarEstado')->name('estado');
     });
 
@@ -77,22 +59,12 @@ Route::middleware(['auth', AdminMiddleware::class])
     ->name('admin.users.')
     ->controller(\App\Http\Controllers\AdminUsersController::class)
     ->group(function () {
-
-        // Vista principal
         Route::get('/', 'index')->name('index');
-
-        // Mostrar todos los usuarios (equivalente a "show" de categorías/peticiones)
         Route::get('/show', 'show')->name('show');
-
-        // Crear
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
-
-        // Editar
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/{id}', 'update')->name('update');
-
-        // Eliminar
         Route::delete('/{id}', 'destroy')->name('delete');
     });
 
@@ -101,18 +73,13 @@ Route::middleware(['auth', AdminMiddleware::class])
     ->name('admin.categories.')
     ->controller(\App\Http\Controllers\AdminCategoriesController::class)
     ->group(function () {
-
         Route::get('/', 'index')->name('index');
         Route::get('/show', 'show')->name('show');
-
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
-
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::put('/{id}', 'update')->name('update');
-
         Route::delete('/{id}', 'deleteCategory')->name('delete');
     });
-
 
 require __DIR__.'/auth.php';
